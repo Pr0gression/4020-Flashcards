@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/4020-Flashcards.iml" filepath="$PROJECT_DIR$/.idea/4020-Flashcards.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Ultimate_Recall.iml" filepath="$PROJECT_DIR$/.idea/modules/Ultimate_Recall.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Ultimate_Recall.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Ultimate_Recall.app.iml" />
     </modules>
   </component>
 </project>
