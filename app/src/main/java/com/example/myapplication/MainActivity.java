@@ -1,4 +1,4 @@
-package com.example.ultimaterecall;
+package com.example.myapplication;
 
 import android.os.Bundle;
 
@@ -10,7 +10,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.ultimaterecall.databinding.ActivityMainBinding;
+import com.example.myapplication.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
