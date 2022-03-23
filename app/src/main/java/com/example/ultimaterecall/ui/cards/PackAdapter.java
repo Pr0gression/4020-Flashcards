@@ -9,24 +9,31 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ultimaterecall.R;
+import com.example.ultimaterecall.objects.PackObject;
+
+import java.util.ArrayList;
 
 public class PackAdapter extends RecyclerView.Adapter<PackAdapter.ViewHolder> {
-    private String[] mDataSet;
+    private ArrayList<PackObject> PackList = new ArrayList<>();
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView textView;
+        private final TextView nameTV;
+        private final TextView descTV;
 
         public ViewHolder(View v) {
             super(v);
-            textView = (TextView) v.findViewById(R.id.idPackText);
+            nameTV = (TextView) v.findViewById(R.id.idPackName);
+            descTV = (TextView) v.findViewById(R.id.idPackDesc);
+
         }
-        public TextView getTextView() {
-            return textView;
+        public TextView getNameTV() {
+            return nameTV;
         }
+        public TextView getDescTV() { return descTV; }
     }
 
-    public PackAdapter(String[] dataSet) {
-        mDataSet = dataSet;
+    public PackAdapter(ArrayList<PackObject> list) {
+        PackList = list;
     }
 
     @Override
@@ -41,12 +48,13 @@ public class PackAdapter extends RecyclerView.Adapter<PackAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
-        viewHolder.getTextView().setText(mDataSet[position]);
+        viewHolder.getNameTV().setText(PackList.get(position).getName());
+        viewHolder.getDescTV().setText(PackList.get(position).getDesc());
     }
 
     @Override
     public int getItemCount() {
-        return mDataSet.length;
+        return PackList.size();
     }
 }
 

@@ -13,6 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ultimaterecall.R;
 import com.example.ultimaterecall.databinding.FragmentCardsBinding;
+import com.example.ultimaterecall.objects.PackObject;
+
+import java.util.ArrayList;
 
 public class CardsFragment extends Fragment {
 
@@ -20,8 +23,8 @@ public class CardsFragment extends Fragment {
     protected RecyclerView mRecyclerView;
     protected PackAdapter mAdapter;
     protected RecyclerView.LayoutManager mLayoutManager;
-    protected String[] mDataset;
-    private static final int DATASET_COUNT = 60;
+    protected ArrayList<PackObject> PackObjectArray = new ArrayList<>();
+    private static final int DATASET_COUNT = 10;
 
 
     @Override
@@ -42,7 +45,7 @@ public class CardsFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new PackAdapter(mDataset);
+        mAdapter = new PackAdapter(PackObjectArray);
         mRecyclerView.setAdapter(mAdapter);
 
         return root;
@@ -55,9 +58,11 @@ public class CardsFragment extends Fragment {
     }
 
     private void initDataset() {
-        mDataset = new String[DATASET_COUNT];
         for (int i = 0; i < DATASET_COUNT; i++) {
-            mDataset[i] = "This is element #" + i;
+            PackObject p = new PackObject("Test Pack #" + i,10,"This is a new pack!");
+            PackObjectArray.add(p);
         }
     }
+
+
 }
