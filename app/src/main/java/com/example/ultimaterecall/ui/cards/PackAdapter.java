@@ -1,5 +1,6 @@
 package com.example.ultimaterecall.ui.cards;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ultimaterecall.R;
@@ -22,20 +24,20 @@ public class PackAdapter extends RecyclerView.Adapter<PackAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView nameTV;
         private final TextView descTV;
-        private final Switch selectedSwitch;
+        private final SwitchCompat selectedSwitch;
 
         public ViewHolder(View v) {
             super(v);
             nameTV = (TextView) v.findViewById(R.id.idPackName);
             descTV = (TextView) v.findViewById(R.id.idPackDesc);
-            selectedSwitch = (Switch) v.findViewById(R.id.idSelectedSwitch);
+            selectedSwitch = (SwitchCompat) v.findViewById(R.id.idSelectedSwitch);
 
         }
         public TextView getNameTV() {
             return nameTV;
         }
         public TextView getDescTV() { return descTV; }
-        public Switch getSelectedSwitch() { return selectedSwitch; }
+        public SwitchCompat getSelectedSwitch() { return selectedSwitch; }
     }
 
     public PackAdapter(ArrayList<PackObject> list) {
@@ -59,13 +61,13 @@ public class PackAdapter extends RecyclerView.Adapter<PackAdapter.ViewHolder> {
         viewHolder.getNameTV().setText(packName);
         viewHolder.getDescTV().setText(packDesc);
 
-        Switch toggle = viewHolder.getSelectedSwitch();
+        SwitchCompat toggle = viewHolder.getSelectedSwitch();
         toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    System.out.println("Item " + packName + " selected");
+                    System.out.println("Item (" + packName + ") selected");
                 } else {
-                    System.out.println("Item " + packName + " deselected");
+                    System.out.println("Item (" + packName + ") deselected");
                 }
             }
         });

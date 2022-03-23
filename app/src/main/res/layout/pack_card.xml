@@ -40,7 +40,7 @@
         android:layout_marginBottom="0dp"
         android:layout_toStartOf="@+id/idSelectedSwitch" />
 
-    <Switch
+    <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/idSelectedSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
