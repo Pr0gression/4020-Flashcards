@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Ultimate Recall</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_cards">Cards</string>
+    <string name="title_settings">Settings</string>
+
+    <string name="welcome_string">Welcome to Ultimate Recall!</string>
+
 </resources>
