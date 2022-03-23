@@ -1,7 +1,5 @@
 package com.example.ultimaterecall.ui.cards;
 
-import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.ultimaterecall.R;
 
 public class PackAdapter extends RecyclerView.Adapter<PackAdapter.ViewHolder> {
-    private Context context;
     private String[] mDataSet;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -33,6 +30,7 @@ public class PackAdapter extends RecyclerView.Adapter<PackAdapter.ViewHolder> {
     }
 
     @Override
+    @NonNull
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         // Create a new view.
         View v = LayoutInflater.from(viewGroup.getContext())

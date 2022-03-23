@@ -8,15 +8,11 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ultimaterecall.R;
 import com.example.ultimaterecall.databinding.FragmentCardsBinding;
-import com.example.ultimaterecall.objects.PackObject;
-
-import java.util.ArrayList;
 
 public class CardsFragment extends Fragment {
 
@@ -26,7 +22,6 @@ public class CardsFragment extends Fragment {
     protected RecyclerView.LayoutManager mLayoutManager;
     protected String[] mDataset;
     private static final int DATASET_COUNT = 60;
-    private static final int SPAN_COUNT = 2;
 
 
     @Override
