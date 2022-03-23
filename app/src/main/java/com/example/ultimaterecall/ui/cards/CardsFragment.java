@@ -1,9 +1,12 @@
 package com.example.ultimaterecall.ui.cards;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -15,6 +18,8 @@ import com.example.ultimaterecall.R;
 import com.example.ultimaterecall.databinding.FragmentCardsBinding;
 import com.example.ultimaterecall.objects.PackObject;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class CardsFragment extends Fragment {
@@ -24,7 +29,7 @@ public class CardsFragment extends Fragment {
     protected PackAdapter mAdapter;
     protected RecyclerView.LayoutManager mLayoutManager;
     protected ArrayList<PackObject> PackObjectArray = new ArrayList<>();
-    private static final int DATASET_COUNT = 10;
+    private static final int DATASET_COUNT = 5;
 
 
     @Override
@@ -48,6 +53,7 @@ public class CardsFragment extends Fragment {
         mAdapter = new PackAdapter(PackObjectArray);
         mRecyclerView.setAdapter(mAdapter);
 
+
         return root;
     }
 
@@ -63,6 +69,5 @@ public class CardsFragment extends Fragment {
             PackObjectArray.add(p);
         }
     }
-
 
 }
