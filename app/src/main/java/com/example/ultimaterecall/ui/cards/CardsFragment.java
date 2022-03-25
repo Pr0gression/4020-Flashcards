@@ -16,7 +16,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ultimaterecall.R;
 import com.example.ultimaterecall.databinding.FragmentCardsBinding;
+import com.example.ultimaterecall.objects.CardObject;
 import com.example.ultimaterecall.objects.PackObject;
+import com.example.ultimaterecall.objects.TextCard;
 
 import org.w3c.dom.Text;
 
@@ -64,8 +66,12 @@ public class CardsFragment extends Fragment {
     }
 
     private void initDataset() {
+        TextCard pack1card1 = new TextCard("Card1","Konnichiwa","Hello");
+        TextCard pack1card2 = new TextCard("Card2","Sayonara","Goodbye");
+        CardObject pack1[] = {pack1card1,pack1card2};
+
         for (int i = 0; i < DATASET_COUNT; i++) {
-            PackObject p = new PackObject("Test Pack #" + i,10,"This is a new pack!");
+            PackObject p = new PackObject("Test Pack #" + i,10,"This is a new pack!",pack1);
             PackObjectArray.add(p);
         }
     }

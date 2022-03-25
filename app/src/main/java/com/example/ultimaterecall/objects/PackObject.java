@@ -1,16 +1,18 @@
 package com.example.ultimaterecall.objects;
 
-public class PackObject {
+public class PackObject implements IPackObject {
 
     private String packName;
     private int packSize;
     private String packDesc;
+    private CardObject cards[];
 
-
-    public PackObject(String packName, int packSize, String packDesc) {
+    public PackObject(String packName, int packSize, String packDesc, CardObject pack[]) {
         this.packName = packName;
         this.packSize = packSize;
         this.packDesc = packDesc;
+        this.cards = pack;
+
     }
 
     public String getName() { return this.packName;}
@@ -27,5 +29,13 @@ public class PackObject {
         this.packDesc = newDesc;
     }
 
+    @Override
+    public void createPack() {
+        //Create new pack
+    }
 
+    @Override
+    public void randomizePack() {
+
+    }
 }
