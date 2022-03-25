@@ -9,9 +9,11 @@ import java.util.ArrayList;
 public class FakeDatabase {
 
     ArrayList<PackObject> packs;
+    private int numPacks;
 
     public FakeDatabase() {
         packs = new ArrayList<>();
+        numPacks = 2;
         makeData();
     }
 
@@ -39,5 +41,13 @@ public class FakeDatabase {
 
         packs.add(p1);
         packs.add(p2);
+    }
+
+    public ArrayList<PackObject> getPacks() {
+        return packs;
+    }
+
+    public int getNumPacks() {
+        return numPacks;
     }
 }

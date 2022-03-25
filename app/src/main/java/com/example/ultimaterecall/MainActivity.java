@@ -2,10 +2,11 @@ package com.example.ultimaterecall;
 
 import android.os.Bundle;
 
-import com.example.ultimaterecall.data.FakeDatabase;
+import com.example.ultimaterecall.data.DatabaseViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -16,11 +17,12 @@ import com.example.ultimaterecall.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    public FakeDatabase database = new FakeDatabase();
+    private DatabaseViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        viewModel = new ViewModelProvider(this).get(DatabaseViewModel.class);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
