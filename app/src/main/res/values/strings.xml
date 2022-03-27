@@ -7,4 +7,10 @@
     <string name="welcome_string">Welcome to Ultimate Recall!</string>
     <string name="edit_string">Edit</string>
     <string name="selected">Enabled</string>
+    <string name="availability">Availability</string>
+    <string name="flashcards_per_day">Flashcards Per Day</string>
+    <string name="flashcard_group_size">Flashcard Group Size</string>
+    <string name="interval_growth_factor">Interval Growth Factor</string>
+    <string name="pause_scheduler">Pause Scheduler</string>
+    <string name="pause_scheduler">Pause Scheduler</string>
 </resources>
