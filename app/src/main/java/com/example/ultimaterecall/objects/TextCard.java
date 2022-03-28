@@ -1,6 +1,6 @@
 package com.example.ultimaterecall.objects;
 
-public class TextCard extends CardObject {
+public class TextCard extends CardObject implements ITextCard{
 
     private String prompt;
     private String answer;
