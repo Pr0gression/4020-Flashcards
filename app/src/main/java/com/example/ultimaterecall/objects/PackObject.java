@@ -12,30 +12,23 @@ public class PackObject implements IPackObject {
         this.packSize = packSize;
         this.packDesc = packDesc;
         this.cards = pack;
-
     }
 
-    public String getName() { return this.packName;}
     public int getSize() { return this.packSize;}
+    public String getName() { return this.packName;}
     public String getDesc() { return this.packDesc;}
-
-    public void setName(String newName) {
-        this.packName = newName;
-    }
-    public void setSize(int newSize) {
-        this.packSize = newSize;
-    }
     public void setDesc(String newDesc) {
         this.packDesc = newDesc;
     }
+    public void setName(String newName) { this.packName = newName; }
 
     @Override
-    public void createPack() {
-        //Create new pack
+    public CardObject getCard(int i) {
+        return cards[i];
     }
 
     @Override
     public void randomizePack() {
-
+        //Might be implemented later
     }
 }
