@@ -14,4 +14,5 @@ public class TextCard extends CardObject implements ITextCard{
     public String getName() { return super.getCardName();}
     public String getPrompt() {return prompt;}
     public String getAnswer() {return answer;}
+
 }

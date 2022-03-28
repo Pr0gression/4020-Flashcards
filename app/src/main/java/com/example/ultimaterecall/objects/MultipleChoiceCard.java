@@ -15,4 +15,9 @@ public class MultipleChoiceCard extends CardObject implements IMultipleChoiceCar
     public String getPrompt() { return prompt; }
     public String[] getAnswers() { return answers; }
     public int getAnswerIndex() { return index; }
+
+    @Override
+    public boolean isEnabled() {
+        return false;
+    }
 }
