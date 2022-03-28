@@ -5,6 +5,7 @@ public abstract class CardObject implements ICardObject {
 
     public CardObject(String name) {
         this.cardName = name;
-
     }
+
+    public String getCardName() {return cardName;}
 }
