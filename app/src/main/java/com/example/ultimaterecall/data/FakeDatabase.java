@@ -27,6 +27,8 @@ public class FakeDatabase {
         TextCard pack1card7 = new TextCard("Card7","Nomu","To Drink");
         CardObject pack1[] = {pack1card1,pack1card2,pack1card3,pack1card4,pack1card5,pack1card6,pack1card7};
 
+        pack1card1.toggleEnabled();
+
         TextCard pack2card1 = new TextCard("Card1","Q1","A1");
         TextCard pack2card2 = new TextCard("Card2","Q2","A2");
         TextCard pack2card3 = new TextCard("Card3","Q3","A3");
