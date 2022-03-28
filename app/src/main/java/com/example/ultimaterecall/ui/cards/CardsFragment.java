@@ -70,4 +70,8 @@ public class CardsFragment extends Fragment {
         PackObjectArray = fd.getPacks();
     }
 
+    public void editClicked() {
+
+    }
+
 }
