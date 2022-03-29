@@ -50,4 +50,16 @@
         android:layout_marginBottom="0dp"
         android:text="@string/selected" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/idEditButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/idSelectedSwitch"
+        android:layout_marginStart="45dp"
+        android:layout_marginBottom="13dp"
+        android:layout_toEndOf="@+id/idPackDesc"
+        android:clickable="true"
+        android:contentDescription="@string/edit_string"
+        app:srcCompat="@android:drawable/ic_menu_edit" />
+
 </RelativeLayout>

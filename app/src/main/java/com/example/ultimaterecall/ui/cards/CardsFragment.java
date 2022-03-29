@@ -42,8 +42,6 @@ public class CardsFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        CardsViewModel cardsViewModel =
-                new ViewModelProvider(this).get(CardsViewModel.class);
 
         binding = FragmentCardsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -68,6 +66,10 @@ public class CardsFragment extends Fragment {
     private void initDataset() {
         FakeDatabase fd = viewModel.getDatabase();
         PackObjectArray = fd.getPacks();
+    }
+
+    public void editClicked() {
+
     }
 
 }
