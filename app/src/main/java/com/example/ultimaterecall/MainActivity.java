@@ -22,7 +22,8 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.ultimaterecall.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
-    final String FLASHCARDS_PER_DAY = "flashcardsPerDay", INTERVAL_GROWTH_FACTOR = "intervalGrowthFactor", PAUSE = "pause";
+    final String FLASHCARDS_PER_DAY = "flashcardsPerDay", FLASHCARDS_GROUP_SIZE = "flashcardGroupSize",
+            INTERVAL_GROWTH_FACTOR = "intervalGrowthFactor", PAUSE = "pause";
 
     private SharedPreferences sharedPreferences;
 
@@ -78,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
                 EditText eFGS = (EditText)findViewById(R.id.flashcardGroupSizeInput);
                 String fgs = eFGS.getText().toString();
-                editor.putInt(FLASHCARDS_PER_DAY, Integer.parseInt(fpd));
+                editor.putInt(FLASHCARDS_GROUP_SIZE, Integer.parseInt(fgs));
 
                 EditText eIGF = (EditText)findViewById(R.id.intervalGrowthFactorInput);
                 String igf = eIGF.getText().toString();
