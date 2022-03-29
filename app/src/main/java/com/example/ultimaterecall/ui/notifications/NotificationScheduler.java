@@ -26,7 +26,6 @@ public class NotificationScheduler extends BroadcastReceiver
 
     public static void schedulePackNextDay(Context context, int packIndex)
     {
-        //TODO: Generate date set (9am tomorrow, 5pm tomorrow)
         List<Date> startTimes = new ArrayList<Date>();
         List<Date> endTimes = new ArrayList<Date>();
 
