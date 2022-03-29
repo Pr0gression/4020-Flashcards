@@ -1,7 +1,8 @@
 package com.example.ultimaterecall.objects;
 
 public interface IPackObject {
-    public void randomizePack();
-    public int getSize();
-    public CardObject getCard(int i);
+    void randomizePack();
+    int getSize();
+    CardObject getCard(int i);
+    CardObject[] getCards();
 }

@@ -7,4 +7,10 @@
     <string name="welcome_string">Welcome to Ultimate Recall!</string>
     <string name="edit_string">Edit</string>
     <string name="selected">Enabled</string>
+    <string name="review_string">Review</string>
+
+    <!-- strings for card review-->
+    <string name="card_prompt">Card Prompt</string>
+    <string name="card_answer">Card Answer</string>
+    <string name="card_reveal">Reveal Answer</string>
 </resources>

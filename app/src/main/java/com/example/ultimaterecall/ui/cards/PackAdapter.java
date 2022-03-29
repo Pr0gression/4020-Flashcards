@@ -1,14 +1,10 @@
 package com.example.ultimaterecall.ui.cards;
 
-import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
-import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SwitchCompat;
@@ -21,7 +17,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
 public class PackAdapter extends RecyclerView.Adapter<PackAdapter.ViewHolder> {
-    private ArrayList<PackObject> PackList = new ArrayList<>();
+    private ArrayList<PackObject> PackList;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView nameTV;

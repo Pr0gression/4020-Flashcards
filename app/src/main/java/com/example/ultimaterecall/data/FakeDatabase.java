@@ -25,7 +25,7 @@ public class FakeDatabase {
         TextCard pack1card5 = new TextCard("Card5","Tobu","To Fly");
         TextCard pack1card6 = new TextCard("Card6","Taberu","To Eat");
         TextCard pack1card7 = new TextCard("Card7","Nomu","To Drink");
-        CardObject pack1[] = {pack1card1,pack1card2,pack1card3,pack1card4,pack1card5,pack1card6,pack1card7};
+        CardObject[] pack1 = {pack1card1,pack1card2,pack1card3,pack1card4,pack1card5,pack1card6,pack1card7};
 
         pack1card1.toggleEnabled();
 
@@ -36,7 +36,7 @@ public class FakeDatabase {
         TextCard pack2card5 = new TextCard("Card5","Q5","A5");
         TextCard pack2card6 = new TextCard("Card6","Q6","A6");
         TextCard pack2card7 = new TextCard("Card7","Q7","A7");
-        CardObject pack2[] = {pack2card1,pack2card2,pack2card3,pack2card4,pack2card5,pack2card6,pack2card7};
+        CardObject[] pack2 = {pack2card1,pack2card2,pack2card3,pack2card4,pack2card5,pack2card6,pack2card7};
 
         PackObject p1 = new PackObject("Japanese",21,"Learn Japanese now!",pack1);
         PackObject p2 = new PackObject("Other",21,"Learn Other now!",pack1);
@@ -48,6 +48,7 @@ public class FakeDatabase {
     public ArrayList<PackObject> getPacks() {
         return packs;
     }
+    public PackObject getPack(int i) { return packs.get(i);}
 
     public int getNumPacks() {
         return numPacks;

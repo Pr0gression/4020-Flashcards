@@ -60,6 +60,8 @@
         android:layout_toEndOf="@+id/idPackDesc"
         android:clickable="true"
         android:contentDescription="@string/edit_string"
+        android:focusable="true"
+        android:visibility="invisible"
         app:srcCompat="@android:drawable/ic_menu_edit" />
 
 </RelativeLayout>

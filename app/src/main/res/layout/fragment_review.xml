@@ -4,17 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.review.ReviewFragment">
 
-    <TextView
-        android:id="@+id/welcomeText"
-        android:layout_width="336dp"
-        android:layout_height="56dp"
-        android:text="@string/welcome_string"
-        android:textAlignment="center"
-        android:textSize="24sp"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/idReviewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
