@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Switch;
 
 import com.example.ultimaterecall.data.DatabaseViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -20,6 +22,8 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.ultimaterecall.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
+    final String FLASHCARDS_PER_DAY = "flashcardsPerDay", INTERVAL_GROWTH_FACTOR = "intervalGrowthFactor", PAUSE = "pause";
+
     private SharedPreferences sharedPreferences;
 
     private ActivityMainBinding binding;
@@ -46,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
 
         createAddTimePeriodButton();
+        createApplySettingsButton();
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
     }
 
@@ -55,6 +60,34 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // click handling code
+            }
+        });
+    }
+
+    private void createApplySettingsButton() {
+        addTimePeriodButton = (Button)findViewById(R.id.applyButton);
+        addTimePeriodButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                // click handling code
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                EditText eFPD = (EditText)findViewById(R.id.flashcardsPerDayInput);
+                String fpd = eFPD.getText().toString();
+                editor.putInt(FLASHCARDS_PER_DAY, Integer.parseInt(fpd));
+
+                EditText eFGS = (EditText)findViewById(R.id.flashcardGroupSizeInput);
+                String fgs = eFGS.getText().toString();
+                editor.putInt(FLASHCARDS_PER_DAY, Integer.parseInt(fpd));
+
+                EditText eIGF = (EditText)findViewById(R.id.intervalGrowthFactorInput);
+                String igf = eIGF.getText().toString();
+                editor.putInt(INTERVAL_GROWTH_FACTOR, Integer.parseInt(igf));
+
+                Switch pauseSwitch = (Switch)findViewById(R.id.pauseSchedulerSwitch);
+                boolean pause = pauseSwitch.isChecked();
+                editor.putBoolean(PAUSE, pause);
+                editor.apply();
             }
         });
     }
