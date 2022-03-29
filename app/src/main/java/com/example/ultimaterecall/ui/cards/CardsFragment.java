@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -42,8 +43,6 @@ public class CardsFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        CardsViewModel cardsViewModel =
-                new ViewModelProvider(this).get(CardsViewModel.class);
 
         binding = FragmentCardsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -55,7 +54,17 @@ public class CardsFragment extends Fragment {
         mAdapter = new PackAdapter(PackObjectArray);
         mRecyclerView.setAdapter(mAdapter);
 
+        mRecyclerView.addOnItemTouchListener(new RecyclerViewTouchListener(getActivity().getApplicationContext(), mRecyclerView, new RecyclerViewClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                System.out.println("Hey there from " + position);
+            }
 
+            @Override
+            public void onLongClick(View view, int position) {
+                System.out.println("Hey there");
+            }
+        }));
         return root;
     }
 
@@ -68,6 +77,10 @@ public class CardsFragment extends Fragment {
     private void initDataset() {
         FakeDatabase fd = viewModel.getDatabase();
         PackObjectArray = fd.getPacks();
+    }
+
+    public void editClicked() {
+
     }
 
 }

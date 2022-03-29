@@ -12,4 +12,5 @@
     <string name="flashcard_group_size">Flashcard Group Size</string>
     <string name="interval_growth_factor">Interval Growth Factor</string>
     <string name="pause_scheduler">Pause Scheduler</string>
+    <string name="apply">Apply</string>
 </resources>

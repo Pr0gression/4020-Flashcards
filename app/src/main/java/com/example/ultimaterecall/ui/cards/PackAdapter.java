@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ultimaterecall.R;
 import com.example.ultimaterecall.objects.PackObject;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -25,19 +27,21 @@ public class PackAdapter extends RecyclerView.Adapter<PackAdapter.ViewHolder> {
         private final TextView nameTV;
         private final TextView descTV;
         private final SwitchCompat selectedSwitch;
+        private final FloatingActionButton editButton;
 
         public ViewHolder(View v) {
             super(v);
             nameTV = (TextView) v.findViewById(R.id.idPackName);
             descTV = (TextView) v.findViewById(R.id.idPackDesc);
             selectedSwitch = (SwitchCompat) v.findViewById(R.id.idSelectedSwitch);
-
+            editButton = (FloatingActionButton) v.findViewById(R.id.idEditButton);
         }
         public TextView getNameTV() {
             return nameTV;
         }
         public TextView getDescTV() { return descTV; }
         public SwitchCompat getSelectedSwitch() { return selectedSwitch; }
+        public FloatingActionButton getEditButton() { return editButton; }
     }
 
     public PackAdapter(ArrayList<PackObject> list) {
@@ -69,12 +73,6 @@ public class PackAdapter extends RecyclerView.Adapter<PackAdapter.ViewHolder> {
                 } else {
                     System.out.println("Item (" + packName + ") deselected");
                 }
-            }
-        });
-        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                System.out.println("Hi from item " + packName);
             }
         });
     }

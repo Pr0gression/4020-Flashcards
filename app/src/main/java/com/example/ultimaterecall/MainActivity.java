@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Switch;
 
 import com.example.ultimaterecall.data.DatabaseViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -24,8 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private DatabaseViewModel viewModel;
-    private Button addTimePeriodButton;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,17 +45,8 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
-        createAddTimePeriodButton();
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
     }
 
-    private void createAddTimePeriodButton() {
-        addTimePeriodButton = (Button)findViewById(R.id.addTimePeriod);
-        addTimePeriodButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                // click handling code
-            }
-        });
-    }
+
 }
