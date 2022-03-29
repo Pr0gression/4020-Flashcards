@@ -75,16 +75,6 @@ public class PackAdapter extends RecyclerView.Adapter<PackAdapter.ViewHolder> {
                 }
             }
         });
-        FloatingActionButton editButton = viewHolder.getEditButton();
-        editButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                CharSequence text = "Edit pack button not yet implemented...";
-                int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(view.getContext(), text, duration);
-                toast.show();
-            }
-        });
     }
 
     @Override
