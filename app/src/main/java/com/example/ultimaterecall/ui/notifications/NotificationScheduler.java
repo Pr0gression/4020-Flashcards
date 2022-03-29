@@ -10,6 +10,8 @@ import com.example.ultimaterecall.data.FakeDatabase;
 import com.example.ultimaterecall.objects.ICardObject;
 import com.example.ultimaterecall.objects.IPackObject;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -18,6 +20,29 @@ public class NotificationScheduler extends BroadcastReceiver
 {
     private static final String PACK_INDEX_LABEL = "packIndex";
     private static final String CARD_INDEX_LABEL = "cardIndex";
+
+    private static final int START_HOUR = 9;
+    private static final int END_HOUR = 17;
+
+    public static void schedulePackNextDay(Context context, int packIndex)
+    {
+        //TODO: Generate date set (9am tomorrow, 5pm tomorrow)
+        List<Date> startTimes = new ArrayList<Date>();
+        List<Date> endTimes = new ArrayList<Date>();
+
+        Calendar cal = Calendar.getInstance();
+        cal.setTimeInMillis(System.currentTimeMillis() + (1000*60*60*24));
+        cal.set(Calendar.MILLISECOND, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MINUTE, 0);
+
+        cal.set(Calendar.HOUR_OF_DAY, START_HOUR);
+        startTimes.add(cal.getTime());
+        cal.set(Calendar.HOUR_OF_DAY, END_HOUR);
+        startTimes.add(cal.getTime());
+
+        schedulePack(context, packIndex, startTimes, endTimes);
+    }
 
     public static void schedulePack(Context context, int packIndex, List<Date> startTimes, List<Date> endTimes)
     {
