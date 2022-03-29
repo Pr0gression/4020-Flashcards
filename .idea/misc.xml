@@ -4,11 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/jaung/source/repos/4020-Flashcards/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/jaung/source/repos/4020-Flashcards/app/src/main/res/layout/fragment_cards.xml" value="0.358695652173913" />
         <entry key="..\:/Users/jaung/source/repos/4020-Flashcards/app/src/main/res/layout/fragment_home.xml" value="0.358695652173913" />
         <entry key="..\:/Users/jaung/source/repos/4020-Flashcards/app/src/main/res/layout/fragment_settings.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/jaung/source/repos/4020-Flashcards/app/src/main/res/layout/pack_card.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/jaung/source/repos/4020-Flashcards/app/src/main/res/menu/bottom_nav_menu.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/jcalv/StudioProjects/4020-Flashcards/app/src/main/res/drawable/customborder.xml" value="0.196" />
         <entry key="..\:/Users/jcalv/StudioProjects/4020-Flashcards/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/jcalv/StudioProjects/4020-Flashcards/app/src/main/res/layout/card_pack_item.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/jcalv/StudioProjects/4020-Flashcards/app/src/main/res/layout/card_review.xml" value="0.297554347826087" />
         <entry key="..\:/Users/jcalv/StudioProjects/4020-Flashcards/app/src/main/res/layout/fragment_cards.xml" value="0.25" />
         <entry key="..\:/Users/jcalv/StudioProjects/4020-Flashcards/app/src/main/res/layout/fragment_dashboard.xml" value="0.358695652173913" />
         <entry key="..\:/Users/jcalv/StudioProjects/4020-Flashcards/app/src/main/res/layout/fragment_home.xml" value="0.358695652173913" />
