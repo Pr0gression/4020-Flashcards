@@ -13,4 +13,7 @@
     <string name="interval_growth_factor">Interval Growth Factor</string>
     <string name="pause_scheduler">Pause Scheduler</string>
     <string name="apply">Apply</string>
+    <string name="from">From:</string>
+    <string name="to">To:</string>
+    <string name="add_time_period">+ Add Time Period</string>
 </resources>
