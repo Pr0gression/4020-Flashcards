@@ -3,15 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content"
+    android:background="@drawable/card_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
     <TextView
-        android:id="@+id/idCardPrompt"
+        android:id="@+id/idTextCardPrompt"
         style="?android:textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/thick_border"
         android:lineSpacingMultiplier="1.2"
         android:padding="16dp"
         android:text="@string/card_prompt"
@@ -22,7 +24,7 @@
         tools:layout_editor_absoluteX="0dp" />
 
     <TextView
-        android:id="@+id/idCardAnswer"
+        android:id="@+id/idTextCardAnswer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/card_answer"
@@ -34,15 +36,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idCardPrompt"
-        app:layout_constraintVertical_bias="0.218" />
+        app:layout_constraintTop_toBottomOf="@+id/idTextCardPrompt"
+        app:layout_constraintVertical_bias="0.407" />
 
     <Button
-        android:id="@+id/idRevealButton"
+        android:id="@+id/idTextRevealButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="252dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/card_reveal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

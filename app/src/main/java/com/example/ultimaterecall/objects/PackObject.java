@@ -1,13 +1,15 @@
 package com.example.ultimaterecall.objects;
 
+import java.util.ArrayList;
+
 public class PackObject implements IPackObject {
 
     private String packName;
     private int packSize;
     private String packDesc;
-    private CardObject[] cards;
+    private ArrayList<CardObject> cards;
 
-    public PackObject(String packName, int packSize, String packDesc, CardObject[] pack) {
+    public PackObject(String packName, int packSize, String packDesc, ArrayList<CardObject> pack) {
         this.packName = packName;
         this.packSize = packSize;
         this.packDesc = packDesc;
@@ -24,11 +26,11 @@ public class PackObject implements IPackObject {
 
     @Override
     public CardObject getCard(int i) {
-        return cards[i];
+        return cards.get(i);
     }
 
     @Override
-    public CardObject[] getCards() {
+    public ArrayList<CardObject> getCards() {
         return cards;
     }
 

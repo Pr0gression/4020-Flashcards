@@ -37,6 +37,9 @@
             android:name="packNumber"
             app:argType="integer"
             android:defaultValue="0"/>
+        <action
+            android:id="@+id/action_navigation_review_to_navigation_cards"
+            app:destination="@id/navigation_cards" />
     </fragment>
 
 </navigation>

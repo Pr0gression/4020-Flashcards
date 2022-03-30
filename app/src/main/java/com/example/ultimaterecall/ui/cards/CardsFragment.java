@@ -56,7 +56,6 @@ public class CardsFragment extends Fragment {
         mRecyclerView.addOnItemTouchListener(new RecyclerViewTouchListener(getActivity().getApplicationContext(), mRecyclerView, new RecyclerViewClickListener() {
             @Override
             public void onClick(View view, int position) {
-                System.out.println("Hey there from " + position);
                 Bundle bundle = new Bundle();
                 bundle.putInt("packNumber",position);
                 Navigation.findNavController(view).navigate(R.id.action_navigation_cards_to_reviewFragment,bundle);
@@ -79,10 +78,6 @@ public class CardsFragment extends Fragment {
     private void initDataset() {
         FakeDatabase fd = viewModel.getDatabase();
         PackObjectArray = fd.getPacks();
-    }
-
-    public void editClicked() {
-
     }
 
 }
