@@ -67,18 +67,11 @@ public class NotificationDispatcher
     //Build the prompt notification for the given card
     private static Notification buildPromptNotification(Context context, ICardObject card, int notificationID)
     {
-        //Create the intent to launch the app to review the card in-app
-        //TODO: Currently just launches app, replace with intent to launch into review, also dismiss notification
-        Intent inappIntent = new Intent(context, MainActivity.class);
-        inappIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        PendingIntent pInappIntent = PendingIntent.getActivity(context, 0, inappIntent, 0);
-
         //TODO: Reconsider icon, title
         //Initialize general notification data
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID);
         builder.setSmallIcon(R.drawable.ic_notifications_black_24dp);
         builder.setContentTitle(context.getResources().getString(R.string.prompt_notification_title));
-        builder.setContentIntent(pInappIntent);
         builder.setAutoCancel(false);
 
         //Add card content based on type
@@ -101,8 +94,6 @@ public class NotificationDispatcher
         revealIntent.putExtra(NotificationAnswerer.NOTIFICATION_ID_LABEL, notificationID);
         PendingIntent pRevealIntent = PendingIntent.getBroadcast(context, getNextID(context), revealIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        //TODO: Implement reveal intent (second notification), also intent must dismiss notification
-
         NotificationCompat.Action reveal = new NotificationCompat.Action(0, "Reveal", pRevealIntent);
         builder.addAction(reveal);
     }
@@ -113,7 +104,6 @@ public class NotificationDispatcher
         builder.setContentText(card.getPrompt());
 
         //Add multiple choice actions
-        //TODO: Implement action intents (second notification), should say correct or wrong, also intent must dismiss notification
         for(String answerText : card.getAnswers())
         {
             String answerResponse;
