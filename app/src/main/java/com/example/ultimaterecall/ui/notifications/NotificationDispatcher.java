@@ -6,6 +6,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 
 import androidx.core.app.NotificationCompat;
@@ -22,6 +23,9 @@ public class NotificationDispatcher
     private static final String NOTIFICATION_CHANNEL_ID = "flashcardNotifications";
     private static final String NOTIFICATION_CHANNEL_NAME = "Flashcard Notifications";
 
+    private static final String SHARED_PREFERENCES_KEY = "NotificationDispatcher_preferences";
+    private static final String NEXT_ID_PREFERENCE_KEY = "NotificationDispatcher_nextID";
+
     //Send a notification for the given card
     public static void sendPromptFlashcard(Context context, ICardObject card)
     {
@@ -31,7 +35,7 @@ public class NotificationDispatcher
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
             notificationManager.createNotificationChannel(new NotificationChannel(NOTIFICATION_CHANNEL_ID, NOTIFICATION_CHANNEL_NAME, NotificationManager.IMPORTANCE_DEFAULT));
 
-        int notificationID = (int)System.currentTimeMillis();
+        int notificationID = getNextID(context);
 
         //TODO: Add log when flashcard dispatched
 
@@ -55,7 +59,7 @@ public class NotificationDispatcher
         builder.setAutoCancel(false);
         builder.setContentText(answer);
 
-        notificationManager.notify((int)System.currentTimeMillis(), builder.build());
+        notificationManager.notify(getNextID(context), builder.build());
 
         //TODO: Add log when flashcard answered
     }
@@ -95,7 +99,7 @@ public class NotificationDispatcher
         Intent revealIntent = new Intent(context, NotificationAnswerer.class);
         revealIntent.putExtra(NotificationAnswerer.ANSWER_LABEL, card.getAnswer());
         revealIntent.putExtra(NotificationAnswerer.NOTIFICATION_ID_LABEL, notificationID);
-        PendingIntent pRevealIntent = PendingIntent.getBroadcast(context, (int)System.currentTimeMillis(), revealIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pRevealIntent = PendingIntent.getBroadcast(context, getNextID(context), revealIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         //TODO: Implement reveal intent (second notification), also intent must dismiss notification
 
@@ -121,10 +125,19 @@ public class NotificationDispatcher
             Intent answerIntent = new Intent(context, NotificationAnswerer.class);
             answerIntent.putExtra(NotificationAnswerer.ANSWER_LABEL, answerResponse);
             answerIntent.putExtra(NotificationAnswerer.NOTIFICATION_ID_LABEL, notificationID);
-            PendingIntent pAnswerIntent = PendingIntent.getBroadcast(context, (int)System.currentTimeMillis(), answerIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            PendingIntent pAnswerIntent = PendingIntent.getBroadcast(context, getNextID(context), answerIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
             NotificationCompat.Action answer = new NotificationCompat.Action(0, answerText, pAnswerIntent);
             builder.addAction(answer);
         }
+    }
+
+    private static int getNextID(Context context)
+    {
+        SharedPreferences preferences = context.getSharedPreferences(SHARED_PREFERENCES_KEY, Context.MODE_PRIVATE);
+        int id = preferences.getInt(NEXT_ID_PREFERENCE_KEY, 0);
+        preferences.edit().putInt(NEXT_ID_PREFERENCE_KEY, id+1).apply();
+
+        return id;
     }
 }
