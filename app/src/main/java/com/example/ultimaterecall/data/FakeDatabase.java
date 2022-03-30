@@ -39,7 +39,7 @@ public class FakeDatabase {
         CardObject pack2[] = {pack2card1,pack2card2,pack2card3,pack2card4,pack2card5,pack2card6,pack2card7};
 
         PackObject p1 = new PackObject("Japanese",21,"Learn Japanese now!",pack1);
-        PackObject p2 = new PackObject("Other",21,"Learn Other now!",pack1);
+        PackObject p2 = new PackObject("Other",21,"Learn Other now!",pack2);
 
         packs.add(p1);
         packs.add(p2);
