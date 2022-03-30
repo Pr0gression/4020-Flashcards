@@ -16,6 +16,8 @@ import java.util.Date;
 import java.util.List;
 
 //TODO: Implement in-interface way of scheduling pack (for next day?)
+
+//Schedules flashcard notifications for delivery within provide windows
 public class NotificationScheduler extends BroadcastReceiver
 {
     private static final String PACK_INDEX_LABEL = "packIndex";

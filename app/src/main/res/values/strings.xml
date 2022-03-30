@@ -13,5 +13,8 @@
     <string name="interval_growth_factor">Interval Growth Factor</string>
     <string name="pause_scheduler">Pause Scheduler</string>
     <string name="apply">Apply</string>
-    <string name="notification_title">Flashcard</string>
+    <string name="prompt_notification_title">Flashcard</string>
+    <string name="answer_notification_title">Flashcard Answer</string>
+    <string name="answer_notification_mchoice_correct">Correct!</string>
+    <string name="answer_notification_mchoice_wrong">Sorry, the answer is</string>
 </resources>

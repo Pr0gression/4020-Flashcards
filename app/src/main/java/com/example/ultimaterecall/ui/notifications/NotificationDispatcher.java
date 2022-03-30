@@ -16,6 +16,7 @@ import com.example.ultimaterecall.objects.ICardObject;
 import com.example.ultimaterecall.objects.IMultipleChoiceCard;
 import com.example.ultimaterecall.objects.ITextCard;
 
+//Sends out flashcard notifications
 public class NotificationDispatcher
 {
     private static final String NOTIFICATION_CHANNEL_ID = "flashcardNotifications";
@@ -30,17 +31,37 @@ public class NotificationDispatcher
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
             notificationManager.createNotificationChannel(new NotificationChannel(NOTIFICATION_CHANNEL_ID, NOTIFICATION_CHANNEL_NAME, NotificationManager.IMPORTANCE_DEFAULT));
 
-        notificationManager.notify((int)System.currentTimeMillis(), buildPromptNotification(context, card));
+        int notificationID = (int)System.currentTimeMillis();
+
+        //TODO: Add log when flashcard dispatched
+
+        notificationManager.notify(notificationID, buildPromptNotification(context, card, notificationID));
     }
 
-    //Send a notification providing the answer for the card
-    public static void sendAnswerNotification(Context context, String text)
+    //Send a notification providing the given answer for a card
+    public static void sendAnswerNotification(Context context, String answer)
     {
-        //TODO: Implement answer notification
+        NotificationManager notificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        //Create notification channel if new enough OS
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+            notificationManager.createNotificationChannel(new NotificationChannel(NOTIFICATION_CHANNEL_ID, NOTIFICATION_CHANNEL_NAME, NotificationManager.IMPORTANCE_DEFAULT));
+
+        //TODO: Reconsider icon, title
+        //Create notification
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID);
+        builder.setSmallIcon(R.drawable.ic_notifications_black_24dp);
+        builder.setContentTitle(context.getResources().getString(R.string.answer_notification_title));
+        builder.setAutoCancel(false);
+        builder.setContentText(answer);
+
+        notificationManager.notify((int)System.currentTimeMillis(), builder.build());
+
+        //TODO: Add log when flashcard answered
     }
 
     //Build the prompt notification for the given card
-    private static Notification buildPromptNotification(Context context, ICardObject card)
+    private static Notification buildPromptNotification(Context context, ICardObject card, int notificationID)
     {
         //Create the intent to launch the app to review the card in-app
         //TODO: Currently just launches app, replace with intent to launch into review, also dismiss notification
@@ -52,37 +73,37 @@ public class NotificationDispatcher
         //Initialize general notification data
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID);
         builder.setSmallIcon(R.drawable.ic_notifications_black_24dp);
-        builder.setContentTitle(context.getResources().getString(R.string.notification_title));
+        builder.setContentTitle(context.getResources().getString(R.string.prompt_notification_title));
         builder.setContentIntent(pInappIntent);
         builder.setAutoCancel(false);
 
         //Add card content based on type
         if(card instanceof ITextCard)
-            addTextContent(context, (ITextCard)card, builder);
+            addTextContent(context, (ITextCard)card, builder, notificationID);
         else if(card instanceof IMultipleChoiceCard)
-            addMultipleChoiceContent(context, (IMultipleChoiceCard)card, builder);
-
-        //TODO: Add log when flashcard answered
+            addMultipleChoiceContent(context, (IMultipleChoiceCard)card, builder, notificationID);
 
         return builder.build();
     }
 
-    private static void addTextContent(Context context, ITextCard card, NotificationCompat.Builder builder)
+    private static void addTextContent(Context context, ITextCard card, NotificationCompat.Builder builder, int notificationID)
     {
         //Add prompt text
         builder.setContentText(card.getPrompt());
 
         //Add reveal action
-        //TODO: Implement reveal intent (second notification), also intent must dismiss notification
-        Intent revealIntent = null;
-        //TODO: pIntent causes crash
-        //PendingIntent pRevealIntent = PendingIntent.getActivity(context, 0, revealIntent, 0);
+        Intent revealIntent = new Intent(context, NotificationAnswerer.class);
+        revealIntent.putExtra(NotificationAnswerer.ANSWER_LABEL, card.getAnswer());
+        revealIntent.putExtra(NotificationAnswerer.NOTIFICATION_ID_LABEL, notificationID);
+        PendingIntent pRevealIntent = PendingIntent.getBroadcast(context, (int)System.currentTimeMillis(), revealIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        //NotificationCompat.Action reveal = new NotificationCompat.Action(0, "Reveal", pRevealIntent);
-        //builder.addAction(reveal);
+        //TODO: Implement reveal intent (second notification), also intent must dismiss notification
+
+        NotificationCompat.Action reveal = new NotificationCompat.Action(0, "Reveal", pRevealIntent);
+        builder.addAction(reveal);
     }
 
-    private static void addMultipleChoiceContent(Context context, IMultipleChoiceCard card, NotificationCompat.Builder builder)
+    private static void addMultipleChoiceContent(Context context, IMultipleChoiceCard card, NotificationCompat.Builder builder, int notificationID)
     {
         //Add prompt text
         builder.setContentText(card.getPrompt());
@@ -91,17 +112,19 @@ public class NotificationDispatcher
         //TODO: Implement action intents (second notification), should say correct or wrong, also intent must dismiss notification
         for(String answerText : card.getAnswers())
         {
+            String answerResponse;
             if(answerText.equals(card.getAnswers()[card.getAnswerIndex()]))
-            {
-                //Do something if correct
-            }
+                answerResponse = context.getResources().getString(R.string.answer_notification_mchoice_correct);
+            else
+                answerResponse = context.getResources().getString(R.string.answer_notification_mchoice_wrong) + " " + card.getAnswers()[card.getAnswerIndex()];
 
-            Intent answerIntent = null;
-            //TODO: pIntent causes crash
-            //PendingIntent pAnswerIntent = PendingIntent.getActivity(context, 0, answerIntent, 0);
+            Intent answerIntent = new Intent(context, NotificationAnswerer.class);
+            answerIntent.putExtra(NotificationAnswerer.ANSWER_LABEL, answerResponse);
+            answerIntent.putExtra(NotificationAnswerer.NOTIFICATION_ID_LABEL, notificationID);
+            PendingIntent pAnswerIntent = PendingIntent.getBroadcast(context, (int)System.currentTimeMillis(), answerIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-            //NotificationCompat.Action answer = new NotificationCompat.Action(0, answerText, pAnswerIntent);
-            //builder.addAction(answer);
+            NotificationCompat.Action answer = new NotificationCompat.Action(0, answerText, pAnswerIntent);
+            builder.addAction(answer);
         }
     }
 }

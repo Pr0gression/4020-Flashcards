@@ -24,6 +24,10 @@
             android:name=".ui.notifications.NotificationScheduler"
             android:enabled="true"
             android:exported="true" />
+        <receiver
+            android:name=".ui.notifications.NotificationAnswerer"
+            android:enabled="true"
+            android:exported="true" />
     </application>
 
 </manifest>
