@@ -1,5 +1,6 @@
 package com.example.ultimaterecall.ui.settings;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
@@ -34,7 +35,7 @@ public class SettingsFragment extends Fragment {
         addAvailability();
 
         ((Button)root.findViewById(R.id.experimentControlsButton)).setOnClickListener(v -> {
-            //
+            startActivity(new Intent(root.getContext(), ExperimentControlsActivity.class));
         });
 
         return root;

@@ -6,8 +6,6 @@ import android.content.SharedPreferences;
 import com.example.ultimaterecall.data.FakeDatabase;
 import com.example.ultimaterecall.objects.IPackObject;
 
-//TODO: Add UI to view log results
-
 //Saves records of the dispatching of and response to flashcard notifications
 public class NotificationLogger
 {
