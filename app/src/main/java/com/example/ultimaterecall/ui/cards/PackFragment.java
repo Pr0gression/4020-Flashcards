@@ -7,27 +7,27 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ultimaterecall.R;
+import com.example.ultimaterecall.data.DatabaseViewModel;
 import com.example.ultimaterecall.data.FakeDatabase;
 import com.example.ultimaterecall.databinding.FragmentCardsBinding;
+import com.example.ultimaterecall.objects.CardObject;
 import com.example.ultimaterecall.objects.PackObject;
-import com.example.ultimaterecall.data.DatabaseViewModel;
 
 import java.util.ArrayList;
 
-public class CardsFragment extends Fragment {
+public class PackFragment extends Fragment {
 
     private FragmentCardsBinding binding;
     protected RecyclerView mRecyclerView;
-    protected PackAdapter mAdapter;
+    protected CardAdapter mAdapter;
     protected RecyclerView.LayoutManager mLayoutManager;
-    protected ArrayList<PackObject> PackObjectArray = new ArrayList<>();
+    protected ArrayList<CardObject> CardObjectArray = new ArrayList<>();
     private static final int DATASET_COUNT = 5;
     private DatabaseViewModel viewModel;
 
@@ -37,7 +37,7 @@ public class CardsFragment extends Fragment {
         super.onCreate(savedInstanceState);
         viewModel = new ViewModelProvider(requireActivity()).get(DatabaseViewModel.class);
 
-        initDataset();
+        initDataset(getArguments().getInt("packEditNumber"));
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -50,22 +50,19 @@ public class CardsFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new PackAdapter(PackObjectArray);
+        mAdapter = new CardAdapter(CardObjectArray);
         mRecyclerView.setAdapter(mAdapter);
 
         mRecyclerView.addOnItemTouchListener(new RecyclerViewTouchListener(getActivity().getApplicationContext(), mRecyclerView, new RecyclerViewClickListener() {
             @Override
             public void onClick(View view, int position) {
                 Bundle bundle = new Bundle();
-                bundle.putInt("packNumber",position);
+                bundle.putInt("cardNumber",position);
                 Navigation.findNavController(view).navigate(R.id.action_navigation_cards_to_reviewFragment,bundle);
             }
 
             @Override
             public void onLongClick(View view, int position) {
-                Bundle bundle = new Bundle();
-                bundle.putInt("packEditNumber",position);
-                Navigation.findNavController(view).navigate(R.id.action_navigation_cards_to_packFragment,bundle);
             }
         }));
         return root;
@@ -77,9 +74,9 @@ public class CardsFragment extends Fragment {
         binding = null;
     }
 
-    private void initDataset() {
+    private void initDataset(int packNumber) {
         FakeDatabase fd = viewModel.getDatabase();
-        PackObjectArray = fd.getPacks();
+        CardObjectArray = fd.getPack(packNumber).getCards();
     }
 
 }

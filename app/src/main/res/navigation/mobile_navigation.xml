@@ -20,6 +20,9 @@
             android:id="@+id/action_navigation_cards_to_reviewFragment"
             app:destination="@id/navigation_review"
             app:restoreState="true"/>
+        <action
+            android:id="@+id/action_navigation_cards_to_packFragment"
+            app:destination="@id/navigation_pack" />
     </fragment>
 
     <fragment
@@ -39,6 +42,14 @@
             android:defaultValue="0"/>
         <action
             android:id="@+id/action_navigation_review_to_navigation_cards"
+            app:destination="@id/navigation_cards" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_pack"
+        android:name="com.example.ultimaterecall.ui.cards.PackFragment"
+        android:label="@string/title_pack">
+        <action
+            android:id="@+id/action_packFragment_to_navigation_cards"
             app:destination="@id/navigation_cards" />
     </fragment>
 

@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ultimaterecall.R;
 import com.example.ultimaterecall.objects.CardObject;
+import com.example.ultimaterecall.objects.PackObject;
 
 import java.util.ArrayList;
 
