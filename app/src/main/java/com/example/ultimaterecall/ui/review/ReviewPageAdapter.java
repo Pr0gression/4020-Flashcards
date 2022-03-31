@@ -60,8 +60,11 @@ class ReviewPageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             case 1: // Multiple Choice
                 MCViewHolder multipleCardHolder = (MCViewHolder) holder;
                 multipleCardHolder.answerText1.setVisibility(View.VISIBLE);
+                multipleCardHolder.answerText1.setBackgroundResource(R.drawable.thick_border);
                 multipleCardHolder.answerText2.setVisibility(View.VISIBLE);
+                multipleCardHolder.answerText2.setBackgroundResource(R.drawable.thick_border);
                 multipleCardHolder.answerText3.setVisibility(View.VISIBLE);
+                multipleCardHolder.answerText3.setBackgroundResource(R.drawable.thick_border);
                 break;
             default: // Image
         }
