@@ -1,12 +1,53 @@
 <resources>
     <string name="app_name">Ultimate Recall</string>
-    <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="title_home">Home</string>
+    <string name="title_cards">Cards</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_pack">Pack</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- Home Strings -->
+    <string name="welcome_string">Welcome to Ultimate Recall!</string>
+    <string name="streak_string">You are on a 8 day streak! 🔥</string>
+    <string name="suggested_string">Cards you havent seen in a while will be here</string>
+
+
+    <string name="edit_string">Edit</string>
+    <string name="selected">Enabled</string>
+    <string name="availability">Availability</string>
+    <string name="flashcards_per_day">Flashcards Per Day</string>
+    <string name="flashcard_group_size">Flashcard Group Size</string>
+    <string name="interval_growth_factor">Interval Growth Factor</string>
+    <string name="pause_scheduler">Pause Scheduler</string>
+    <string name="apply">Apply</string>
+    <string name="from">From:</string>
+    <string name="to">To:</string>
+    <string name="add_time_period">+ Add Time Period</string>
+    <string name="experiment_controls">Experiment Controls</string>
+
+    <string name="prompt_notification_title">Flashcard</string>
+    <string name="answer_notification_title">Flashcard Answer</string>
+    <string name="answer_notification_mchoice_correct">Correct!</string>
+    <string name="answer_notification_mchoice_wrong">Sorry, the answer is</string>
+    <string name="review_string">Review</string>
+
+    <string name="add_button">Create New Card</string>
+    <string name="save_card_button">Save Card</string>
+
+    <!-- strings for card review-->
+    <string name="card_prompt">Card Prompt</string>
+    <string name="card_answer">Card Answer</string>
+    <string name="card_reveal">Reveal Answer</string>
+
+    <!-- Experiment Controls Screen -->
+    <string name="schedule_deck_1">Schedule Finnish</string>
+    <string name="schedule_deck_2">Schedule Basque</string>
+    <string name="test_text_card">Send Test Text Card</string>
+    <string name="test_mc_card">Send Test MC Card</string>
+    <string name="response_rate">Rate A:</string>
+    <string name="timely_response_rate">Rate B:</string>
+
+    <string-array name="flashcard_types">
+        <item>Multiple Choice</item>
+        <item>Text</item>
+    </string-array>
 </resources>
