@@ -23,10 +23,16 @@
         <entry key="..\:/Users/micha/AndroidStudioProjects/4020-Flashcards/app/src/main/res/layout/card_view.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/4020-Flashcards/app/src/main/res/layout/fashcard_listing.xml" value="0.14479166666666668" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/4020-Flashcards/app/src/main/res/layout/fragment_cards.xml" value="0.136" />
-        <entry key="..\:/Users/micha/AndroidStudioProjects/4020-Flashcards/app/src/main/res/layout/fragment_creator.xml" value="0.14479166666666668" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/4020-Flashcards/app/src/main/res/layout/fragment_creator.xml" value="0.128" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/4020-Flashcards/app/src/main/res/layout/fragment_deck.xml" value="0.1390625" />
-        <entry key="..\:/Users/micha/AndroidStudioProjects/4020-Flashcards/app/src/main/res/layout/fragment_pack.xml" value="0.264" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/4020-Flashcards/app/src/main/res/layout/fragment_pack.xml" value="0.136" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/4020-Flashcards/app/src/main/res/layout/fragment_review.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/4020-Flashcards/app/src/main/res/layout/image_card_review_page.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/4020-Flashcards/app/src/main/res/layout/multiple_choice_card_review_page.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/4020-Flashcards/app/src/main/res/layout/multiple_choice_creation_page.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/4020-Flashcards/app/src/main/res/layout/pack_card.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/4020-Flashcards/app/src/main/res/layout/text_card_review_page.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/micha/AndroidStudioProjects/4020-Flashcards/app/src/main/res/layout/text_creation_page.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/micha/AndroidStudioProjects/4020-Flashcards/app/src/main/res/menu/bottom_nav_menu.xml" value="0.11302083333333333" />
       </map>
     </option>

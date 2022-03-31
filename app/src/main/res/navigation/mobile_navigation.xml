@@ -68,7 +68,7 @@
     <fragment
         android:id="@+id/navigation_creator"
         android:name="com.example.ultimaterecall.ui.creation.CreatorFragment"
-        android:label="CreatorFragment" >
+        android:label="Card Creation">
         <action
             android:id="@+id/action_navigation_creator_to_navigation_pack"
             app:destination="@id/navigation_pack" />

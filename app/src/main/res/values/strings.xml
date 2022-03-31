@@ -45,4 +45,9 @@
     <string name="test_mc_card">Send Test MC Card</string>
     <string name="response_rate">Rate A:</string>
     <string name="timely_response_rate">Rate B:</string>
+
+    <string-array name="flashcard_types">
+        <item>Multiple Choice</item>
+        <item>Text</item>
+    </string-array>
 </resources>

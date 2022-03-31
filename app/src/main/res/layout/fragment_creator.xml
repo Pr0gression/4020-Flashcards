@@ -7,12 +7,30 @@
     tools:context=".ui.cards.CardsFragment">
 
     <Button
-        android:id="@+id/save_button"
+        android:id="@+id/idSaveButton3"
         android:layout_width="0dp"
-        android:layout_height="48dp"
+        android:layout_height="64dp"
+        android:background="@drawable/square_button"
         android:text="@string/save_card_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/idCreatorBase"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <Spinner
+        android:id="@+id/idDropdown"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:contentDescription="Select a flashcard format..."
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

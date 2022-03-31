@@ -10,7 +10,7 @@
         android:id="@+id/idCardRV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toTopOf="@+id/add_card"
+        app:layout_constraintBottom_toTopOf="@+id/idAddCard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,7 +19,7 @@
     </androidx.recyclerview.widget.RecyclerView>
 
     <Button
-        android:id="@+id/add_card"
+        android:id="@+id/idAddCard"
         android:layout_width="0dp"
         android:layout_height="64dp"
         android:text="@string/add_button"
