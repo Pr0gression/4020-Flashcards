@@ -50,7 +50,7 @@ public class ReviewFragment extends Fragment {
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 super.onPageScrolled(position, positionOffset, positionOffsetPixels);
                 if (position < previousPage) {
-                    viewPager2.setCurrentItem(previousPage, true);
+                    //viewPager2.setCurrentItem(previousPage, true);
                 } else {
                     previousPage = position;
                 }

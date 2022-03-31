@@ -1,6 +1,7 @@
 package com.example.ultimaterecall.ui.review;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ultimaterecall.R;
@@ -121,18 +123,21 @@ class ReviewPageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     if (mc.getAnswerIndex() == 0) {
                         correct = true;
                         System.out.println("Correct!");
+                        multipleCardHolder.answerText1.setBackgroundResource(R.drawable.thick_border_selected);
                     }
                 });
                 multipleCardHolder.answerText2.setOnClickListener(view -> {
                     if (mc.getAnswerIndex() == 1) {
                         correct = true;
                         System.out.println("Correct!");
+                        multipleCardHolder.answerText2.setBackgroundResource(R.drawable.thick_border_selected);
                     }
                 });
                 multipleCardHolder.answerText3.setOnClickListener(view -> {
                     if (mc.getAnswerIndex() == 2) {
                         correct = true;
                         System.out.println("Correct!");
+                        multipleCardHolder.answerText3.setBackgroundResource(R.drawable.thick_border_selected);
                     }
                 });
                 break;
