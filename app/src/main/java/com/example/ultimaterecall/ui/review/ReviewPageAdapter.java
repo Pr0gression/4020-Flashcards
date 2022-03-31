@@ -40,11 +40,6 @@ class ReviewPageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
     }
 
-    public void setDone() {
-        System.out.println("Done");
-
-    }
-
     @Override
     public void onViewDetachedFromWindow(@NonNull RecyclerView.ViewHolder holder) {
         switch (holder.getItemViewType()) {

@@ -54,15 +54,10 @@ public class ReviewFragment extends Fragment {
                 } else {
                     previousPage = position;
                 }
-
             }
 
             @Override
             public void onPageSelected(int position) {
-                if (position == myCards.size()-1) {
-                    reviewPageAdapter.setDone();
-
-                }
                 super.onPageSelected(position);
             }
 
