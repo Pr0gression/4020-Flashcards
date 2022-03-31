@@ -13,4 +13,27 @@
     <string name="interval_growth_factor">Interval Growth Factor</string>
     <string name="pause_scheduler">Pause Scheduler</string>
     <string name="apply">Apply</string>
+    <string name="from">From:</string>
+    <string name="to">To:</string>
+    <string name="add_time_period">+ Add Time Period</string>
+    <string name="experiment_controls">Experiment Controls</string>
+
+    <string name="prompt_notification_title">Flashcard</string>
+    <string name="answer_notification_title">Flashcard Answer</string>
+    <string name="answer_notification_mchoice_correct">Correct!</string>
+    <string name="answer_notification_mchoice_wrong">Sorry, the answer is</string>
+    <string name="review_string">Review</string>
+
+    <!-- strings for card review-->
+    <string name="card_prompt">Card Prompt</string>
+    <string name="card_answer">Card Answer</string>
+    <string name="card_reveal">Reveal Answer</string>
+
+    <!-- Experiment Controls Screen -->
+    <string name="schedule_deck_1">Schedule Finnish</string>
+    <string name="schedule_deck_2">Schedule Basque</string>
+    <string name="test_text_card">Send Test Text Card</string>
+    <string name="test_mc_card">Send Test MC Card</string>
+    <string name="response_rate">Rate A:</string>
+    <string name="timely_response_rate">Rate B:</string>
 </resources>

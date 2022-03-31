@@ -15,11 +15,31 @@
         android:id="@+id/navigation_cards"
         android:name="com.example.ultimaterecall.ui.cards.CardsFragment"
         android:label="@string/title_cards"
-        tools:layout="@layout/fragment_cards" />
+        tools:layout="@layout/fragment_cards" >
+        <action
+            android:id="@+id/action_navigation_cards_to_reviewFragment"
+            app:destination="@id/navigation_review"
+            app:restoreState="true"/>
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_settings"
         android:name="com.example.ultimaterecall.ui.settings.SettingsFragment"
         android:label="@string/title_settings"
         tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/navigation_review"
+        android:name="com.example.ultimaterecall.ui.review.ReviewFragment"
+        android:label="@string/review_string"
+        android:layout="@layout/fragment_review">
+        <argument
+            android:name="packNumber"
+            app:argType="integer"
+            android:defaultValue="0"/>
+        <action
+            android:id="@+id/action_navigation_review_to_navigation_cards"
+            app:destination="@id/navigation_cards" />
+    </fragment>
+
 </navigation>

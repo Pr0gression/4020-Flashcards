@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="30dp"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".ui.settings.ExperimentControlsActivity">
+
+    <Button
+        android:id="@+id/scheduleDeck1Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="@string/schedule_deck_1" />
+
+    <Button
+        android:id="@+id/scheduleDeck2Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="@string/schedule_deck_2" />
+
+    <Button
+        android:id="@+id/sendTestTextButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="@string/test_text_card" />
+
+    <Button
+        android:id="@+id/sendTestMCButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="@string/test_mc_card" />
+
+    <TextView
+        android:id="@+id/responseRateText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/response_rate" />
+
+    <TextView
+        android:id="@+id/timelyResponseRateText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/timely_response_rate" />
+</LinearLayout>

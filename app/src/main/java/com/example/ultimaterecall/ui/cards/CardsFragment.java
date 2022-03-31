@@ -4,20 +4,19 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ultimaterecall.R;
 import com.example.ultimaterecall.data.FakeDatabase;
 import com.example.ultimaterecall.databinding.FragmentCardsBinding;
-import com.example.ultimaterecall.objects.CardObject;
 import com.example.ultimaterecall.objects.PackObject;
-import com.example.ultimaterecall.objects.TextCard;
 import com.example.ultimaterecall.data.DatabaseViewModel;
 
 import java.util.ArrayList;
@@ -57,7 +56,9 @@ public class CardsFragment extends Fragment {
         mRecyclerView.addOnItemTouchListener(new RecyclerViewTouchListener(getActivity().getApplicationContext(), mRecyclerView, new RecyclerViewClickListener() {
             @Override
             public void onClick(View view, int position) {
-                System.out.println("Hey there from " + position);
+                Bundle bundle = new Bundle();
+                bundle.putInt("packNumber",position);
+                Navigation.findNavController(view).navigate(R.id.action_navigation_cards_to_reviewFragment,bundle);
             }
 
             @Override
@@ -77,10 +78,6 @@ public class CardsFragment extends Fragment {
     private void initDataset() {
         FakeDatabase fd = viewModel.getDatabase();
         PackObjectArray = fd.getPacks();
-    }
-
-    public void editClicked() {
-
     }
 
 }
