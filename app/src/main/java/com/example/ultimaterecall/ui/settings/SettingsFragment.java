@@ -1,17 +1,13 @@
 package com.example.ultimaterecall.ui.settings;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ScrollView;
-import android.widget.Switch;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -36,6 +32,10 @@ public class SettingsFragment extends Fragment {
 
         createAddTimePeriodButton();
         addAvailability();
+
+        ((Button)root.findViewById(R.id.experimentControlsButton)).setOnClickListener(v -> {
+            //
+        });
 
         return root;
     }

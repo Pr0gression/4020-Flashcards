@@ -165,4 +165,11 @@
         android:layout_weight="1"
         android:text="Disclaimer: Doesn't actually do anything." />
 
+    <Button
+        android:id="@+id/experimentControlsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#752626"
+        android:text="Experiment Controls" />
+
 </LinearLayout>
