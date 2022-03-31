@@ -1,14 +1,10 @@
 package com.example.ultimaterecall.ui.cards;
 
-import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
-import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SwitchCompat;
@@ -21,7 +17,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
 public class PackAdapter extends RecyclerView.Adapter<PackAdapter.ViewHolder> {
-    private ArrayList<PackObject> PackList = new ArrayList<>();
+    private final ArrayList<PackObject> PackList;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView nameTV;
@@ -31,10 +27,10 @@ public class PackAdapter extends RecyclerView.Adapter<PackAdapter.ViewHolder> {
 
         public ViewHolder(View v) {
             super(v);
-            nameTV = (TextView) v.findViewById(R.id.idPackName);
-            descTV = (TextView) v.findViewById(R.id.idPackDesc);
-            selectedSwitch = (SwitchCompat) v.findViewById(R.id.idSelectedSwitch);
-            editButton = (FloatingActionButton) v.findViewById(R.id.idEditButton);
+            nameTV = v.findViewById(R.id.idPackName);
+            descTV = v.findViewById(R.id.idPackDesc);
+            selectedSwitch = v.findViewById(R.id.idSelectedSwitch);
+            editButton =  v.findViewById(R.id.idEditButton);
         }
         public TextView getNameTV() {
             return nameTV;
@@ -66,13 +62,11 @@ public class PackAdapter extends RecyclerView.Adapter<PackAdapter.ViewHolder> {
         viewHolder.getDescTV().setText(packDesc);
 
         SwitchCompat toggle = viewHolder.getSelectedSwitch();
-        toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    System.out.println("Item (" + packName + ") selected");
-                } else {
-                    System.out.println("Item (" + packName + ") deselected");
-                }
+        toggle.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                System.out.println("Item (" + packName + ") selected");
+            } else {
+                System.out.println("Item (" + packName + ") deselected");
             }
         });
     }
