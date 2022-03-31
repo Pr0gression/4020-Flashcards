@@ -26,7 +26,11 @@
         android:id="@+id/navigation_settings"
         android:name="com.example.ultimaterecall.ui.settings.SettingsFragment"
         android:label="@string/title_settings"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_navigation_settings_to_experimentControlsActivity"
+            app:destination="@id/experimentControlsActivity" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_review"
@@ -41,5 +45,10 @@
             android:id="@+id/action_navigation_review_to_navigation_cards"
             app:destination="@id/navigation_cards" />
     </fragment>
+    <activity
+        android:id="@+id/experimentControlsActivity"
+        android:name="com.example.ultimaterecall.ui.settings.ExperimentControlsActivity"
+        android:label="activity_experiment_controls"
+        tools:layout="@layout/activity_experiment_controls" />
 
 </navigation>
