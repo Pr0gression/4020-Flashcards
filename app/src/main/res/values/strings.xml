@@ -32,6 +32,8 @@
     <!-- Experiment Controls Screen -->
     <string name="schedule_deck_1">Schedule Finnish</string>
     <string name="schedule_deck_2">Schedule Basque</string>
+    <string name="test_text_card">Send Test Text Card</string>
+    <string name="test_mc_card">Send Test MC Card</string>
     <string name="response_rate">Rate A:</string>
     <string name="timely_response_rate">Rate B:</string>
 </resources>

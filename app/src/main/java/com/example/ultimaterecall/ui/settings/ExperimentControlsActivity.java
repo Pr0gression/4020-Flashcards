@@ -9,6 +9,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.ultimaterecall.R;
+import com.example.ultimaterecall.data.FakeDatabase;
+import com.example.ultimaterecall.objects.IMultipleChoiceCard;
+import com.example.ultimaterecall.objects.IPackObject;
+import com.example.ultimaterecall.objects.ITextCard;
+import com.example.ultimaterecall.objects.TextCard;
+import com.example.ultimaterecall.ui.notifications.NotificationDispatcher;
 import com.example.ultimaterecall.ui.notifications.NotificationLogger;
 import com.example.ultimaterecall.ui.notifications.NotificationScheduler;
 
@@ -33,6 +39,9 @@ public class ExperimentControlsActivity extends AppCompatActivity
     private Button scheduleButton1;
     private Button scheduleButton2;
 
+    private Button testTextButton;
+    private Button testMCButton;
+
     private SharedPreferences pref;
 
     @Override
@@ -47,23 +56,42 @@ public class ExperimentControlsActivity extends AppCompatActivity
         timelyRateText = (TextView)findViewById(R.id.timelyResponseRateText);
         scheduleButton1 = (Button)findViewById(R.id.scheduleDeck1Button);
         scheduleButton2 = (Button)findViewById(R.id.scheduleDeck2Button);
+        testTextButton = (Button)findViewById(R.id.sendTestTextButton);
+        testMCButton = (Button)findViewById(R.id.sendTestMCButton);
 
         scheduleButton1.setOnClickListener(v -> {
             schedulePackNextDay(0);
             pref.edit().putInt(SCHEDULED_DECK_KEY, 0).apply();
-            updateButtons();
+            updateScheduleButtons();
         });
         scheduleButton2.setOnClickListener(v -> {
             schedulePackNextDay(1);
             pref.edit().putInt(SCHEDULED_DECK_KEY, 1).apply();
-            updateButtons();
+            updateScheduleButtons();
+        });
+        
+        testTextButton.setOnClickListener(v -> {
+            IPackObject pack = new FakeDatabase().getPacks().get(0);
+            int cardIndex = 0;
+            while(!(pack.getCard(cardIndex) instanceof ITextCard) && cardIndex < pack.getSize()-1)
+                cardIndex++;
+
+            NotificationDispatcher.sendPromptFlashcard(this, 0, cardIndex, false);
+        });
+        testMCButton.setOnClickListener(v -> {
+            IPackObject pack = new FakeDatabase().getPacks().get(0);
+            int cardIndex = 0;
+            while(!(pack.getCard(cardIndex) instanceof IMultipleChoiceCard) && cardIndex < pack.getSize()-1)
+                cardIndex++;
+
+            NotificationDispatcher.sendPromptFlashcard(this, 0, cardIndex, false);
         });
 
-        updateButtons();
+        updateScheduleButtons();
         displayRates();
     }
 
-    private void updateButtons()
+    private void updateScheduleButtons()
     {
         boolean enable = pref.getInt(SCHEDULED_DECK_KEY, -1) < 0;
         scheduleButton1.setEnabled(enable);

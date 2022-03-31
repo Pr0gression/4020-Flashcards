@@ -20,8 +20,22 @@
         android:id="@+id/scheduleDeck2Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="40dp"
         android:text="@string/schedule_deck_2" />
+
+    <Button
+        android:id="@+id/sendTestTextButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="@string/test_text_card" />
+
+    <Button
+        android:id="@+id/sendTestMCButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="@string/test_mc_card" />
 
     <TextView
         android:id="@+id/responseRateText"
