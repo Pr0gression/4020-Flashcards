@@ -27,7 +27,7 @@
         android:id="@+id/idMultipleRevealButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="252dp"
+        android:layout_marginStart="212dp"
         android:layout_marginBottom="4dp"
         android:text="@string/card_reveal"
         app:layout_constraintBottom_toBottomOf="parent"
