@@ -47,7 +47,8 @@
     <fragment
         android:id="@+id/navigation_pack"
         android:name="com.example.ultimaterecall.ui.cards.PackFragment"
-        android:label="@string/title_pack">
+        android:label="@string/title_pack"
+        android:layout="@layout/fragment_pack">
         <action
             android:id="@+id/action_packFragment_to_navigation_cards"
             app:destination="@id/navigation_cards" />

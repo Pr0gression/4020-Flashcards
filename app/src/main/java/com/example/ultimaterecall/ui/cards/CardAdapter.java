@@ -15,7 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ultimaterecall.R;
 import com.example.ultimaterecall.objects.CardObject;
+import com.example.ultimaterecall.objects.MultipleChoiceCard;
 import com.example.ultimaterecall.objects.PackObject;
+import com.example.ultimaterecall.objects.TextCard;
 
 import java.util.ArrayList;
 
@@ -57,25 +59,36 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(CardAdapter.ViewHolder viewHolder, final int position) {
-        String packName = "";//CardList.get(position).getName();
-        String packDesc = "";//CardList.get(position).getDesc();
-        viewHolder.getNameTV().setText(packName);
-        viewHolder.getDescTV().setText(packDesc);
+        String cardName;
+        String cardDesc;
+        if (CardList.get(position) instanceof TextCard) {
+            cardName = ((TextCard) CardList.get(position)).getPrompt();
+            cardDesc = "Answer: " + ((TextCard) CardList.get(position)).getAnswer();
+        }
+        else {
+            cardName = ((MultipleChoiceCard) CardList.get(position)).getPrompt();
+            cardDesc = "Possible Answers: " + ((MultipleChoiceCard) CardList.get(position)).getAnswers()[0] + ", " +
+                    ((MultipleChoiceCard) CardList.get(position)).getAnswers()[1] + ", " +
+                    ((MultipleChoiceCard) CardList.get(position)).getAnswers()[2];
+        }
+
+        viewHolder.getNameTV().setText(cardName);
+        viewHolder.getDescTV().setText(cardDesc);
 
         SwitchCompat toggle = viewHolder.getSelectedSwitch();
         toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    System.out.println("Item (" + packName + ") selected");
+                    System.out.println("Item (" + cardName + ") selected");
                 } else {
-                    System.out.println("Item (" + packName + ") deselected");
+                    System.out.println("Item (" + cardName + ") deselected");
                 }
             }
         });
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("Hi from item " + packName);
+                System.out.println("Hi from item " + cardName);
             }
         });
     }

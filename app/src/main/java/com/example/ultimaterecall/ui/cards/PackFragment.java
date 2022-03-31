@@ -16,6 +16,7 @@ import com.example.ultimaterecall.R;
 import com.example.ultimaterecall.data.DatabaseViewModel;
 import com.example.ultimaterecall.data.FakeDatabase;
 import com.example.ultimaterecall.databinding.FragmentCardsBinding;
+import com.example.ultimaterecall.databinding.FragmentPackBinding;
 import com.example.ultimaterecall.objects.CardObject;
 import com.example.ultimaterecall.objects.PackObject;
 
@@ -23,7 +24,7 @@ import java.util.ArrayList;
 
 public class PackFragment extends Fragment {
 
-    private FragmentCardsBinding binding;
+    private FragmentPackBinding binding;
     protected RecyclerView mRecyclerView;
     protected CardAdapter mAdapter;
     protected RecyclerView.LayoutManager mLayoutManager;
@@ -43,10 +44,10 @@ public class PackFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        binding = FragmentCardsBinding.inflate(inflater, container, false);
+        binding = FragmentPackBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        mRecyclerView = (RecyclerView) root.findViewById(R.id.idPackRV);
+        mRecyclerView = (RecyclerView) root.findViewById(R.id.idCardRV);
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
@@ -58,7 +59,7 @@ public class PackFragment extends Fragment {
             public void onClick(View view, int position) {
                 Bundle bundle = new Bundle();
                 bundle.putInt("cardNumber",position);
-                Navigation.findNavController(view).navigate(R.id.action_navigation_cards_to_reviewFragment,bundle);
+                //Navigation.findNavController(view).navigate(R.id.action_navigation_cards_to_reviewFragment,bundle);
             }
 
             @Override

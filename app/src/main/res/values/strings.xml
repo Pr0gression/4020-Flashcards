@@ -25,6 +25,8 @@
     <string name="answer_notification_mchoice_wrong">Sorry, the answer is</string>
     <string name="review_string">Review</string>
 
+    <string name="add_button">Create New Card</string>
+
     <!-- strings for card review-->
     <string name="card_prompt">Card Prompt</string>
     <string name="card_answer">Card Answer</string>
