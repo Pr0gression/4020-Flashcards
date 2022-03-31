@@ -50,18 +50,24 @@
         android:layout_marginBottom="0dp"
         android:text="@string/selected" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <Button
+        android:id="@+id/idReviewButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/idEditButton"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="17dp"
+        android:text="@string/review_string" />
+
+    <Button
         android:id="@+id/idEditButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/idSelectedSwitch"
-        android:layout_marginStart="45dp"
-        android:layout_marginBottom="13dp"
-        android:layout_toEndOf="@+id/idPackDesc"
-        android:clickable="true"
-        android:contentDescription="@string/edit_string"
-        android:focusable="true"
-        android:visibility="visible"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="17dp"
+        android:text="@string/edit_string" />
 
 </RelativeLayout>

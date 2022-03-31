@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
@@ -25,7 +26,8 @@ public class PackAdapter extends RecyclerView.Adapter<PackAdapter.ViewHolder> {
         private final TextView nameTV;
         private final TextView descTV;
         private final SwitchCompat selectedSwitch;
-        private final FloatingActionButton editButton;
+        private final Button editButton;
+        private final Button reviewButton;
 
         public ViewHolder(View v) {
             super(v);
@@ -33,13 +35,15 @@ public class PackAdapter extends RecyclerView.Adapter<PackAdapter.ViewHolder> {
             descTV = v.findViewById(R.id.idPackDesc);
             selectedSwitch = v.findViewById(R.id.idSelectedSwitch);
             editButton =  v.findViewById(R.id.idEditButton);
+            reviewButton = v.findViewById(R.id.idReviewButton);
         }
         public TextView getNameTV() {
             return nameTV;
         }
         public TextView getDescTV() { return descTV; }
         public SwitchCompat getSelectedSwitch() { return selectedSwitch; }
-        public FloatingActionButton getEditButton() { return editButton; }
+        public Button getEditButton() { return editButton; }
+        public Button getReviewButton() { return reviewButton; }
     }
 
     public PackAdapter(ArrayList<PackObject> list) {
@@ -67,6 +71,12 @@ public class PackAdapter extends RecyclerView.Adapter<PackAdapter.ViewHolder> {
             bundle.putInt("packEditNumber",position);
             Navigation.findNavController(view).navigate(R.id.action_navigation_cards_to_packFragment,bundle);
         });
+        viewHolder.reviewButton.setOnClickListener(view -> {
+            Bundle bundle = new Bundle();
+            bundle.putInt("packNumber",position);
+            Navigation.findNavController(view).navigate(R.id.action_navigation_cards_to_reviewFragment,bundle);
+        });
+
         SwitchCompat toggle = viewHolder.getSelectedSwitch();
         toggle.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
