@@ -59,7 +59,7 @@ public class PackFragment extends Fragment {
             public void onClick(View view, int position) {
                 Bundle bundle = new Bundle();
                 bundle.putInt("cardNumber",position);
-                //Navigation.findNavController(view).navigate(R.id.action_navigation_cards_to_reviewFragment,bundle);
+                //Navigation.findNavController(view).navigate(R.id.action_navigation_pack_to_navigation_creator,bundle);
             }
 
             @Override
