@@ -1,52 +1,47 @@
 package com.example.ultimaterecall.ui.cards;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.SwitchCompat;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ultimaterecall.R;
 import com.example.ultimaterecall.objects.CardObject;
 import com.example.ultimaterecall.objects.MultipleChoiceCard;
-import com.example.ultimaterecall.objects.PackObject;
 import com.example.ultimaterecall.objects.TextCard;
 
 import java.util.ArrayList;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
     private ArrayList<CardObject> CardList = new ArrayList<>();
+    private Button addButton;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView nameTV;
         private final TextView descTV;
         //private final SwitchCompat selectedSwitch;
-        private final Button addButton;
+        private final Button editButton;
+        //private final Button addButton;
 
         public ViewHolder(View v) {
             super(v);
             nameTV = (TextView) v.findViewById(R.id.idCardPrompt);
             descTV = (TextView) v.findViewById(R.id.idCardAnswer);
             //selectedSwitch = (SwitchCompat) v.findViewById(R.id.idSelectedSwitch);
-            addButton = (Button) v.findViewById(R.id.add_card);
-            //addButton.setOnClickListener( view -> Navigation.findNavController(view).navigate(R.id.action_navigation_pack_to_navigation_creator) );
-
+            editButton =  v.findViewById(R.id.idEditButton);
         }
         public TextView getNameTV() {
             return nameTV;
         }
         public TextView getDescTV() { return descTV; }
         //public SwitchCompat getSelectedSwitch() { return selectedSwitch; }
+        public Button getEditButton() { return editButton; }
     }
 
     public CardAdapter(ArrayList<CardObject> list) {
@@ -59,6 +54,13 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         // Create a new view.
         View v = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.flashcard_listing, viewGroup, false);
+
+        addButton = (Button) viewGroup.getRootView().findViewById(R.id.idAddCard);
+        addButton.setOnClickListener( view -> {
+            Bundle bundle = new Bundle();
+            bundle.putInt("cardEditNumber",-1);
+            Navigation.findNavController(view).navigate(R.id.action_navigation_pack_to_navigation_creator,bundle);
+        });
 
         return new CardAdapter.ViewHolder(v);
     }
@@ -77,6 +79,11 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
                     ((MultipleChoiceCard) CardList.get(position)).getAnswers()[1] + ", " +
                     ((MultipleChoiceCard) CardList.get(position)).getAnswers()[2];
         }
+        viewHolder.editButton.setOnClickListener(view -> {
+            Bundle bundle = new Bundle();
+            bundle.putInt("cardEditNumber",position);
+            Navigation.findNavController(view).navigate(R.id.action_navigation_pack_to_navigation_creator,bundle);
+        });
 
         viewHolder.getNameTV().setText(cardName);
         viewHolder.getDescTV().setText(cardDesc);
