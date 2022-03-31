@@ -112,7 +112,7 @@ public class ExperimentControlsActivity extends AppCompatActivity
         cal.set(Calendar.HOUR_OF_DAY, START_HOUR);
         startTimes.add(cal.getTime());
         cal.set(Calendar.HOUR_OF_DAY, END_HOUR);
-        startTimes.add(cal.getTime());
+        endTimes.add(cal.getTime());
 
         NotificationScheduler.schedulePack(this, packIndex, startTimes, endTimes);
     }
