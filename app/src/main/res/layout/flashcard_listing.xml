@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/idPackLayout"
+    android:id="@+id/idCardListingLayout"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="150dp"
     android:layout_marginStart="0dp"
     android:background="@drawable/customborder"
     android:clickable="true"
@@ -12,7 +12,7 @@
     android:gravity="center_vertical">
 
     <TextView
-        android:id="@+id/idPackName"
+        android:id="@+id/idCardPrompt"
         android:layout_width="205dp"
         android:layout_height="72dp"
         android:layout_above="@+id/idPackDesc"
@@ -30,35 +30,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/idPackDesc"
-        android:layout_width="266dp"
-        android:layout_height="121dp"
+        android:id="@+id/idCardAnswer"
+        android:layout_width="285dp"
+        android:layout_height="66dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="26dp"
-        android:layout_marginBottom="0dp"
+        android:layout_marginBottom="13dp"
         android:layout_toStartOf="@+id/idSelectedSwitch" />
-
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/idSelectedSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="0dp"
-        android:text="@string/selected" />
-
-    <Button
-        android:id="@+id/idReviewButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/idEditButton"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="17dp"
-        android:text="@string/review_string" />
 
     <Button
         android:id="@+id/idEditButton"

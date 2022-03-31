@@ -3,6 +3,7 @@
     <string name="title_home">Home</string>
     <string name="title_cards">Cards</string>
     <string name="title_settings">Settings</string>
+    <string name="title_pack">Pack</string>
 
     <!-- Home Strings -->
     <string name="welcome_string">Welcome to Ultimate Recall!</string>
@@ -29,6 +30,9 @@
     <string name="answer_notification_mchoice_wrong">Sorry, the answer is</string>
     <string name="review_string">Review</string>
 
+    <string name="add_button">Create New Card</string>
+    <string name="save_card_button">Save Card</string>
+
     <!-- strings for card review-->
     <string name="card_prompt">Card Prompt</string>
     <string name="card_answer">Card Answer</string>
@@ -41,4 +45,9 @@
     <string name="test_mc_card">Send Test MC Card</string>
     <string name="response_rate">Rate A:</string>
     <string name="timely_response_rate">Rate B:</string>
+
+    <string-array name="flashcard_types">
+        <item>Multiple Choice</item>
+        <item>Text</item>
+    </string-array>
 </resources>
