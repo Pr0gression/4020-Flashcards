@@ -15,6 +15,7 @@
         <entry key="..\:/Users/jaung/source/repos/4020-Flashcards/app/src/main/res/menu/bottom_nav_menu.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/jcalv/StudioProjects/4020-Flashcards/app/src/main/res/drawable/card_background.xml" value="0.2985" />
         <entry key="..\:/Users/jcalv/StudioProjects/4020-Flashcards/app/src/main/res/drawable/customborder.xml" value="0.196" />
+        <entry key="..\:/Users/jcalv/StudioProjects/4020-Flashcards/app/src/main/res/drawable/square_button.xml" value="0.2705" />
         <entry key="..\:/Users/jcalv/StudioProjects/4020-Flashcards/app/src/main/res/drawable/thick_border.xml" value="0.2655" />
         <entry key="..\:/Users/jcalv/StudioProjects/4020-Flashcards/app/src/main/res/drawable/thick_border_selected.xml" value="0.3205" />
         <entry key="..\:/Users/jcalv/StudioProjects/4020-Flashcards/app/src/main/res/layout/activity_experiment_controls.xml" value="0.265625" />
@@ -26,7 +27,7 @@
         <entry key="..\:/Users/jcalv/StudioProjects/4020-Flashcards/app/src/main/res/layout/fragment_dashboard.xml" value="0.358695652173913" />
         <entry key="..\:/Users/jcalv/StudioProjects/4020-Flashcards/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Users/jcalv/StudioProjects/4020-Flashcards/app/src/main/res/layout/fragment_notifications.xml" value="0.18802083333333333" />
-        <entry key="..\:/Users/jcalv/StudioProjects/4020-Flashcards/app/src/main/res/layout/fragment_pack.xml" value="0.265625" />
+        <entry key="..\:/Users/jcalv/StudioProjects/4020-Flashcards/app/src/main/res/layout/fragment_pack.xml" value="0.33" />
         <entry key="..\:/Users/jcalv/StudioProjects/4020-Flashcards/app/src/main/res/layout/fragment_review.xml" value="0.22" />
         <entry key="..\:/Users/jcalv/StudioProjects/4020-Flashcards/app/src/main/res/layout/fragment_settings.xml" value="0.2" />
         <entry key="..\:/Users/jcalv/StudioProjects/4020-Flashcards/app/src/main/res/layout/image_card_review_page.xml" value="0.265625" />
