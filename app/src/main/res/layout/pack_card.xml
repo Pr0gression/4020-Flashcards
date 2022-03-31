@@ -61,7 +61,7 @@
         android:clickable="true"
         android:contentDescription="@string/edit_string"
         android:focusable="true"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:srcCompat="@android:drawable/ic_menu_edit" />
 
 </RelativeLayout>

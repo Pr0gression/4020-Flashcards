@@ -1,5 +1,6 @@
 package com.example.ultimaterecall.ui.cards;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ultimaterecall.R;
@@ -60,7 +62,11 @@ public class PackAdapter extends RecyclerView.Adapter<PackAdapter.ViewHolder> {
         String packDesc = PackList.get(position).getDesc();
         viewHolder.getNameTV().setText(packName);
         viewHolder.getDescTV().setText(packDesc);
-
+        viewHolder.editButton.setOnClickListener(view -> {
+            Bundle bundle = new Bundle();
+            bundle.putInt("packEditNumber",position);
+            Navigation.findNavController(view).navigate(R.id.action_navigation_cards_to_packFragment,bundle);
+        });
         SwitchCompat toggle = viewHolder.getSelectedSwitch();
         toggle.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
