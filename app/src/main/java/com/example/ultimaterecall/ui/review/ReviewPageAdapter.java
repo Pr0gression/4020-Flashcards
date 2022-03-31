@@ -24,6 +24,8 @@ class ReviewPageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final int[] cardType;
     private final Context context;
     private ArrayList<CardObject> cards;
+    boolean correct = false;
+
 
     ReviewPageAdapter(Context context, ArrayList<CardObject> cards) {
         this.context = context;
@@ -113,6 +115,24 @@ class ReviewPageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                         default:
                             multipleCardHolder.answerText1.setVisibility(View.INVISIBLE);
                             multipleCardHolder.answerText2.setVisibility(View.INVISIBLE);
+                    }
+                });
+                multipleCardHolder.answerText1.setOnClickListener(view -> {
+                    if (mc.getAnswerIndex() == 0) {
+                        correct = true;
+                        System.out.println("Correct!");
+                    }
+                });
+                multipleCardHolder.answerText2.setOnClickListener(view -> {
+                    if (mc.getAnswerIndex() == 1) {
+                        correct = true;
+                        System.out.println("Correct!");
+                    }
+                });
+                multipleCardHolder.answerText3.setOnClickListener(view -> {
+                    if (mc.getAnswerIndex() == 2) {
+                        correct = true;
+                        System.out.println("Correct!");
                     }
                 });
                 break;

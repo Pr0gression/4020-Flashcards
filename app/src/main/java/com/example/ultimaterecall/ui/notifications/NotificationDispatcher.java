@@ -97,7 +97,7 @@ public class NotificationDispatcher
         revealIntent.putExtra(NotificationAnswerer.PACK_INDEX_LABEL, packIndex);
         revealIntent.putExtra(NotificationAnswerer.CARD_INDEX_LABEL, cardIndex);
         revealIntent.putExtra(NotificationAnswerer.LOG_LABEL, log);
-        PendingIntent pRevealIntent = PendingIntent.getBroadcast(context, getNextID(context), revealIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pRevealIntent = PendingIntent.getBroadcast(context, getNextID(context), revealIntent, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Action reveal = new NotificationCompat.Action(0, "Reveal", pRevealIntent);
         builder.addAction(reveal);
@@ -123,7 +123,7 @@ public class NotificationDispatcher
             answerIntent.putExtra(NotificationAnswerer.PACK_INDEX_LABEL, packIndex);
             answerIntent.putExtra(NotificationAnswerer.CARD_INDEX_LABEL, cardIndex);
             answerIntent.putExtra(NotificationAnswerer.LOG_LABEL, log);
-            PendingIntent pAnswerIntent = PendingIntent.getBroadcast(context, getNextID(context), answerIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            PendingIntent pAnswerIntent = PendingIntent.getBroadcast(context, getNextID(context), answerIntent, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
 
             NotificationCompat.Action answer = new NotificationCompat.Action(0, answerText, pAnswerIntent);
             builder.addAction(answer);

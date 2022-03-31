@@ -47,7 +47,7 @@ public class NotificationScheduler extends BroadcastReceiver
             Intent intent = new Intent(context, NotificationScheduler.class);
             intent.putExtra(PACK_INDEX_LABEL, packIndex);
             intent.putExtra(CARD_INDEX_LABEL, i);
-            PendingIntent pIntent = PendingIntent.getBroadcast(context, i, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            PendingIntent pIntent = PendingIntent.getBroadcast(context, i, intent, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
 
             //Schedule at nextTime
             alarmManager.set(AlarmManager.RTC_WAKEUP, nextTime, pIntent);

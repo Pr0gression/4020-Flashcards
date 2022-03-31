@@ -1,5 +1,6 @@
 package com.example.ultimaterecall.ui.settings;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
@@ -15,6 +16,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import com.example.ultimaterecall.R;
 import com.example.ultimaterecall.databinding.FragmentSettingsBinding;
@@ -34,10 +37,8 @@ public class SettingsFragment extends Fragment {
         createAddTimePeriodButton();
         addAvailability();
 
-        ((Button)root.findViewById(R.id.experimentControlsButton)).setOnClickListener(v -> {
-            startActivity(new Intent(root.getContext(), ExperimentControlsActivity.class));
-        });
-
+        ((Button)root.findViewById(R.id.experimentControlsButton)).setOnClickListener(view ->
+                Navigation.findNavController(view).navigate(R.id.action_navigation_settings_to_experimentControlsActivity));
         return root;
     }
 

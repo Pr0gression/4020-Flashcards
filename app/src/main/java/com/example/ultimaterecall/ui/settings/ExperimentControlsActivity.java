@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.ultimaterecall.MainActivity;
 import com.example.ultimaterecall.R;
 import com.example.ultimaterecall.data.FakeDatabase;
 import com.example.ultimaterecall.objects.IMultipleChoiceCard;
@@ -86,7 +87,6 @@ public class ExperimentControlsActivity extends AppCompatActivity
 
             NotificationDispatcher.sendPromptFlashcard(this, 0, cardIndex, false);
         });
-
         updateScheduleButtons();
         displayRates();
     }
