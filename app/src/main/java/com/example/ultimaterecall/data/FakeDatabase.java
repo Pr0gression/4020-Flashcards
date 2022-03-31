@@ -20,32 +20,60 @@ public class FakeDatabase {
     }
 
     private void makeData() {
-        TextCard pack1card1 = new TextCard("Card1","Konnichiwa","Hello");
-        TextCard pack1card2 = new TextCard("Card2","Sayonara","Goodbye");
-        TextCard pack1card3 = new TextCard("Card3","Aruku","To Walk");
-        TextCard pack1card4 = new TextCard("Card4","Hashiru","To Run");
-        TextCard pack1card5 = new TextCard("Card5","Tobu","To Fly");
-        TextCard pack1card6 = new TextCard("Card6","Taberu","To Eat");
-        TextCard pack1card7 = new TextCard("Card7","Nomu","To Drink");
         ArrayList<CardObject> pack1 = new ArrayList<>();
-        Collections.addAll(pack1, pack1card1,pack1card2,pack1card3,pack1card4,pack1card5,pack1card6,pack1card7);
+        pack1.add(new TextCard("Card 1a", "omena", "apple"));
+        pack1.add(new TextCard("Card 2a", "nainen", "woman"));
+        pack1.add(new TextCard("Card 3a", "koira", "dog"));
+        pack1.add(new TextCard("Card 4a", "hyvastit", "goodbye"));
+        pack1.add(new TextCard("Card 5a", "syoda", "to eat"));
+        pack1.add(new TextCard("Card 6a", "suorittaa", "to run"));
+        pack1.add(new TextCard("Card 7a", "lapsi", "child"));
 
-        pack1card1.toggleEnabled();
+        pack1.add(new MultipleChoiceCard("Card 5b", "syoda", new String[]{"child", "to eat", "apple"}, 1));
+        pack1.add(new MultipleChoiceCard("Card 1b", "omena", new String[]{"apple", "banana", "to run"}, 0));
+        pack1.add(new MultipleChoiceCard("Card 6b", "suorittaa", new String[]{"to fly", "man", "to run"}, 2));
+        pack1.add(new MultipleChoiceCard("Card 4b", "hyvastit", new String[]{"goodbye", "to sit", "woman"}, 0));
+        pack1.add(new MultipleChoiceCard("Card 2b", "nainen", new String[]{"man", "woman", "apple"}, 1));
+        pack1.add(new MultipleChoiceCard("Card 3b", "koira", new String[]{"cat", "goodbye", "dog"}, 2));
+        pack1.add(new MultipleChoiceCard("Card 7b", "lapsi", new String[]{"child", "sleep", "dog"}, 0));
 
-        TextCard pack2card1 = new TextCard("Card1","Q1","A1");
-        TextCard pack2card2 = new TextCard("Card2","Q2","A2");
-        TextCard pack2card3 = new TextCard("Card3","Q3","A3");
-        TextCard pack2card4 = new TextCard("Card4","Q4","A4");
-        TextCard pack2card5 = new TextCard("Card5","Q5","A5");
-        TextCard pack2card6 = new TextCard("Card6","Q6","A6");
-        TextCard pack2card7 = new TextCard("Card7","Q7","A7");
-        MultipleChoiceCard pack2card8 = new MultipleChoiceCard("Card 8","Q8", new String[]{"A1", "A2", "A3"},1);
+        pack1.add(new TextCard("Card 4c", "hyvastit", "goodbye"));
+        pack1.add(new TextCard("Card 5c", "syoda", "to eat"));
+        pack1.add(new TextCard("Card 1c", "omena", "apple"));
+        pack1.add(new TextCard("Card 3c", "koira", "dog"));
+        pack1.add(new TextCard("Card 7c", "lapsi", "child"));
+        pack1.add(new TextCard("Card 2c", "nainen", "woman"));
+        pack1.add(new TextCard("Card 6c", "suorittaa", "to run"));
+
+        pack1.get(0).toggleEnabled();
 
         ArrayList<CardObject> pack2 = new ArrayList<>();
-        Collections.addAll(pack2, pack2card1,pack2card2,pack2card3,pack2card4,pack2card5,pack2card6,pack2card7,pack2card8);
+        pack2.add(new TextCard("Card 1a", "lo", "sleep"));
+        pack2.add(new TextCard("Card 2a", "ibili", "to walk"));
+        pack2.add(new TextCard("Card 3a", "platano", "banana"));
+        pack2.add(new TextCard("Card 4a", "nagusi", "adult"));
+        pack2.add(new TextCard("Card 5a", "joko", "game"));
+        pack2.add(new TextCard("Card 6a", "gizon", "man"));
+        pack2.add(new TextCard("Card 7a", "edan", "to drink"));
 
-        PackObject p1 = new PackObject("Japanese",7,"Learn Japanese now!",pack1);
-        PackObject p2 = new PackObject("Other",8,"Learn Other now!",pack2);
+        pack2.add(new MultipleChoiceCard("Card 2b", "ibili", new String[]{"woman", "to walk", "dog"}, 1));
+        pack2.add(new MultipleChoiceCard("Card 1b", "lo", new String[]{"sleep", "apple", "to run"}, 0));
+        pack2.add(new MultipleChoiceCard("Card 5b", "joko", new String[]{"child", "game", "apple"}, 1));
+        pack2.add(new MultipleChoiceCard("Card 7b", "edan", new String[]{"to drink", "to run", "dog"}, 0));
+        pack2.add(new MultipleChoiceCard("Card 3b", "platano", new String[]{"cat", "sleep", "banana"}, 2));
+        pack2.add(new MultipleChoiceCard("Card 4b", "nagusi", new String[]{"adult", "child", "man"}, 0));
+        pack2.add(new MultipleChoiceCard("Card 6b", "gizon", new String[]{"to fly", "game", "man"}, 2));
+
+        pack2.add(new TextCard("Card 1c", "lo", "sleep"));
+        pack2.add(new TextCard("Card 4c", "nagusi", "adult"));
+        pack2.add(new TextCard("Card 6c", "gizon", "man"));
+        pack2.add(new TextCard("Card 5c", "joko", "game"));
+        pack2.add(new TextCard("Card 3c", "platano", "banana"));
+        pack2.add(new TextCard("Card 2c", "ibili", "to walk"));
+        pack2.add(new TextCard("Card 7c", "edan", "to drink"));
+
+        PackObject p1 = new PackObject("Finnish",21,"Learn Finnish now!",pack1);
+        PackObject p2 = new PackObject("Basque",21,"Learn Basque now!",pack2);
 
         packs.add(p1);
         packs.add(p2);
