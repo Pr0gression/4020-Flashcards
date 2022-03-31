@@ -50,8 +50,7 @@ public class NotificationDispatcher
         //Create notification channel if new enough OS
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
             notificationManager.createNotificationChannel(new NotificationChannel(NOTIFICATION_CHANNEL_ID, NOTIFICATION_CHANNEL_NAME, NotificationManager.IMPORTANCE_DEFAULT));
-
-        //TODO: Reconsider icon, title
+        
         //Create notification
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID);
         builder.setSmallIcon(R.drawable.ic_notifications_black_24dp);
@@ -67,7 +66,6 @@ public class NotificationDispatcher
     //Build the prompt notification for the given card
     private static Notification buildPromptNotification(Context context, int packIndex, int cardIndex, int notificationID)
     {
-        //TODO: Reconsider icon, title
         //Initialize general notification data
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID);
         builder.setSmallIcon(R.drawable.ic_notifications_black_24dp);
