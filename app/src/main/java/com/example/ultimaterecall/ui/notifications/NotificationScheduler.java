@@ -92,9 +92,8 @@ public class NotificationScheduler extends BroadcastReceiver
         //Obtain card
         int packIndex = intent.getIntExtra(PACK_INDEX_LABEL, -1);
         int cardIndex = intent.getIntExtra(CARD_INDEX_LABEL, -1);
-        ICardObject card = new FakeDatabase().getPacks().get(packIndex).getCard(cardIndex);
 
         //Send notification
-        NotificationDispatcher.sendPromptFlashcard(context, card);
+        NotificationDispatcher.sendPromptFlashcard(context, packIndex, cardIndex);
     }
 }

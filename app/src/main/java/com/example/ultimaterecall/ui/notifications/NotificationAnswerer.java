@@ -10,13 +10,17 @@ public class NotificationAnswerer extends BroadcastReceiver
 {
     public static final String ANSWER_LABEL = "answer";
     public static final String NOTIFICATION_ID_LABEL = "notificationID";
+    public static final String PACK_INDEX_LABEL = "packIndex";
+    public static final String CARD_INDEX_LABEL = "cardIndex";
 
     public void onReceive(Context context, Intent intent)
     {
         String answer = intent.getStringExtra(ANSWER_LABEL);
         int notificationID = intent.getIntExtra(NOTIFICATION_ID_LABEL, 0);
+        int packIndex = intent.getIntExtra(PACK_INDEX_LABEL, 0);
+        int cardIndex = intent.getIntExtra(CARD_INDEX_LABEL, 0);
 
         ((NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE)).cancel(notificationID);
-        NotificationDispatcher.sendAnswerNotification(context, answer);
+        NotificationDispatcher.sendAnswerNotification(context, packIndex, cardIndex, answer);
     }
 }
