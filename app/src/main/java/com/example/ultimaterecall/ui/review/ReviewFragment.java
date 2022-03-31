@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -39,7 +40,6 @@ public class ReviewFragment extends Fragment {
         PackObject p = viewModel.getDatabase().getPack(index);
         myCards = p.getCards();
 
-
         ViewPager2 viewPager2 = root.findViewById(R.id.idReviewPager);
         viewPager2.setPageTransformer(new DepthPageTransformer());
         ReviewPageAdapter reviewPageAdapter = new ReviewPageAdapter(getActivity().getApplicationContext(), myCards);
@@ -50,14 +50,20 @@ public class ReviewFragment extends Fragment {
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 super.onPageScrolled(position, positionOffset, positionOffsetPixels);
                 if (position < previousPage) {
-                    viewPager2.setCurrentItem(previousPage, true);
+                    //viewPager2.setCurrentItem(previousPage, true);
                 } else {
                     previousPage = position;
                 }
             }
-
             @Override
             public void onPageSelected(int position) {
+                if (position < previousPage) {
+                    //reviewPageAdapter.setInvisible(position+1);
+                    //System.out.println("back");
+                } else if ( position > previousPage) {
+                    //reviewPageAdapter.setInvisible(position-1);
+                    //System.out.println("forward");
+                }
                 super.onPageSelected(position);
             }
 

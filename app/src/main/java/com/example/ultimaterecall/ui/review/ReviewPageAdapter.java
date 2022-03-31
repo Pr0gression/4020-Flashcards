@@ -24,6 +24,8 @@ class ReviewPageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final int[] cardType;
     private final Context context;
     private ArrayList<CardObject> cards;
+    private MCViewHolder mcHolder;
+    private TViewHolder tHolder;
 
     ReviewPageAdapter(Context context, ArrayList<CardObject> cards) {
         this.context = context;
@@ -46,7 +48,6 @@ class ReviewPageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             case 0: // Text
                 TViewHolder textCardHolder = (TViewHolder) holder;
                 textCardHolder.answerText.setVisibility(View.INVISIBLE);
-
                 break;
             case 1: // Multiple Choice
                 MCViewHolder multipleCardHolder = (MCViewHolder) holder;
@@ -55,6 +56,25 @@ class ReviewPageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 multipleCardHolder.answerText3.setVisibility(View.VISIBLE);
                 break;
             default: // Image
+        }
+    }
+
+
+    public void setInvisible(int i) {
+        int viewType = getItemViewType(i);
+        switch (viewType) {
+            case 0: // Text Card
+                TextCard tc = (TextCard) cards.get(i);
+                System.out.println("Resetting card " + i + " which is " + tc.getPrompt());
+                System.out.println(tHolder.answerText.getText());
+                tHolder.answerText.setVisibility(View.INVISIBLE);
+                break;
+            case 1: // Multiple Choice Card
+                mcHolder.answerText1.setVisibility(View.VISIBLE);
+                mcHolder.answerText2.setVisibility(View.VISIBLE);
+                mcHolder.answerText3.setVisibility(View.VISIBLE);
+                break;
+            default: // Image Card
         }
     }
 
@@ -71,9 +91,11 @@ class ReviewPageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         View imageView = LayoutInflater.from(context).inflate(R.layout.multiple_choice_card_review_page, parent, false);
         switch (viewType) {
             case 0: // Text Card
-                return new TViewHolder(textView);
+                tHolder = new TViewHolder(textView);
+                return tHolder;
             case 1: // Multiple Choice Card
-                return new MCViewHolder(multipleView);
+                mcHolder = new MCViewHolder(multipleView);
+                return mcHolder;
             default: // Image Card
                 return new ImageViewHolder(imageView);
         }
