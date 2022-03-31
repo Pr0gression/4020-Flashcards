@@ -3,6 +3,11 @@ package com.example.ultimaterecall.ui.notifications;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.example.ultimaterecall.data.FakeDatabase;
+import com.example.ultimaterecall.objects.IPackObject;
+
+//TODO: Add UI to view log results
+
 //Saves records of the dispatching of and response to flashcard notifications
 public class NotificationLogger
 {
@@ -44,6 +49,34 @@ public class NotificationLogger
             return -1;
 
         return pref.getLong(rKey, 0) - pref.getLong(dKey, 0);
+    }
+
+    //Returns the portion of dispatched cards in a deck that were responded to in a timely manner
+    //timelyThreshold defines the maximum number of milliseconds to be considered timely
+    public static double timelyResponseRate(Context context, int packIndex, long timelyThreshold)
+    {
+        SharedPreferences pref = getPreferences(context);
+        IPackObject pack = new FakeDatabase().getPacks().get(packIndex);
+
+        int timelyCount = 0;
+        int totalCount = 0;
+        for(int cardIndex = 0; cardIndex < pack.getSize(); cardIndex++)
+        {
+            String dKey = formCardKey(packIndex, cardIndex, LogType.DISPATCH);
+            if(pref.contains(formCardKey(packIndex, cardIndex, LogType.DISPATCH)))
+            {
+                totalCount++;
+                long responseTime = responseTime(context, packIndex, cardIndex);
+
+                if(responseTime >= 0 && responseTime < timelyThreshold)
+                    timelyCount++;
+            }
+        }
+
+        if(totalCount == 0)
+            return 1.0;
+
+        return ((double)timelyCount) / ((double)totalCount);
     }
 
     private static SharedPreferences getPreferences(Context context)

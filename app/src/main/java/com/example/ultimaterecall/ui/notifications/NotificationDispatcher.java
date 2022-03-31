@@ -11,7 +11,6 @@ import android.os.Build;
 
 import androidx.core.app.NotificationCompat;
 
-import com.example.ultimaterecall.MainActivity;
 import com.example.ultimaterecall.R;
 import com.example.ultimaterecall.data.FakeDatabase;
 import com.example.ultimaterecall.objects.ICardObject;
@@ -38,7 +37,6 @@ public class NotificationDispatcher
 
         int notificationID = getNextID(context);
 
-        //TODO: Add log when flashcard dispatched
         NotificationLogger.log(context, packIndex, cardIndex, System.currentTimeMillis(), NotificationLogger.LogType.DISPATCH);
 
         notificationManager.notify(notificationID, buildPromptNotification(context, packIndex, cardIndex, notificationID));
@@ -63,7 +61,6 @@ public class NotificationDispatcher
 
         notificationManager.notify(getNextID(context), builder.build());
 
-        //TODO: Add log when flashcard answered
         NotificationLogger.log(context, packIndex, cardIndex, System.currentTimeMillis(), NotificationLogger.LogType.RESPONSE);
     }
 
