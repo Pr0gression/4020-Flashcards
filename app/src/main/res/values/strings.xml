@@ -31,6 +31,7 @@
     <string name="review_string">Review</string>
 
     <string name="add_button">Create New Card</string>
+    <string name="save_card_button">Save Card</string>
 
     <!-- strings for card review-->
     <string name="card_prompt">Card Prompt</string>
