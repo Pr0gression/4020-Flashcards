@@ -100,6 +100,21 @@ class ReviewPageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 multipleCardHolder.answerText1.setText(mc.getAnswers()[0]);
                 multipleCardHolder.answerText2.setText(mc.getAnswers()[1]);
                 multipleCardHolder.answerText3.setText(mc.getAnswers()[2]);
+                multipleCardHolder.revealButton.setOnClickListener( v-> {
+                    switch( mc.getAnswerIndex() ) {
+                        case 0:
+                            multipleCardHolder.answerText2.setVisibility(View.INVISIBLE);
+                            multipleCardHolder.answerText3.setVisibility(View.INVISIBLE);
+                            break;
+                        case 1:
+                            multipleCardHolder.answerText1.setVisibility(View.INVISIBLE);
+                            multipleCardHolder.answerText3.setVisibility(View.INVISIBLE);
+                            break;
+                        default:
+                            multipleCardHolder.answerText1.setVisibility(View.INVISIBLE);
+                            multipleCardHolder.answerText2.setVisibility(View.INVISIBLE);
+                    }
+                });
                 break;
             default: // Image
         }
@@ -139,11 +154,6 @@ class ReviewPageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             answerText2 = itemView.findViewById(R.id.idMultipleAnswer2);
             answerText3 = itemView.findViewById(R.id.idMultipleAnswer3);
             revealButton = itemView.findViewById(R.id.idMultipleRevealButton);
-            revealButton.setOnClickListener( v-> {
-                answerText1.setVisibility(View.VISIBLE);
-                answerText2.setVisibility(View.VISIBLE);
-                answerText3.setVisibility(View.VISIBLE);
-            });
         }
     }
 

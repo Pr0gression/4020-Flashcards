@@ -50,22 +50,22 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/thick_border"
                 android:padding="5dip"
                 android:text="@string/card_answer"
                 android:textAlignment="center"
-                android:textSize="24sp"
-                android:visibility="invisible" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/idMultipleAnswer2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/thick_border"
                 android:padding="5dip"
                 android:text="@string/card_answer"
                 android:textAlignment="center"
-                android:textSize="24sp"
-                android:visibility="invisible" />
+                android:textSize="24sp" />
         </TableRow>
 
         <TableRow>
@@ -75,11 +75,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/thick_border"
                 android:padding="5dip"
                 android:text="@string/card_answer"
                 android:textAlignment="center"
-                android:textSize="24sp"
-                android:visibility="invisible" />
+                android:textSize="24sp" />
         </TableRow>
 
 
