@@ -27,7 +27,7 @@ public class NotificationDispatcher
     private static final String NEXT_ID_PREFERENCE_KEY = "NotificationDispatcher_nextID";
 
     //Send a notification for the given card
-    public static void sendPromptFlashcard(Context context, int packIndex, int cardIndex)
+    public static void sendPromptFlashcard(Context context, int packIndex, int cardIndex, boolean log)
     {
         NotificationManager notificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
 
@@ -37,13 +37,14 @@ public class NotificationDispatcher
 
         int notificationID = getNextID(context);
 
-        NotificationLogger.log(context, packIndex, cardIndex, System.currentTimeMillis(), NotificationLogger.LogType.DISPATCH);
+        notificationManager.notify(notificationID, buildPromptNotification(context, packIndex, cardIndex, notificationID, log));
 
-        notificationManager.notify(notificationID, buildPromptNotification(context, packIndex, cardIndex, notificationID));
+        if(log)
+            NotificationLogger.log(context, packIndex, cardIndex, System.currentTimeMillis(), NotificationLogger.LogType.DISPATCH);
     }
 
     //Send a notification providing the given answer for a card
-    public static void sendAnswerNotification(Context context, int packIndex, int cardIndex, String answer)
+    public static void sendAnswerNotification(Context context, int packIndex, int cardIndex, String answer, boolean log)
     {
         NotificationManager notificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
 
@@ -60,11 +61,12 @@ public class NotificationDispatcher
 
         notificationManager.notify(getNextID(context), builder.build());
 
-        NotificationLogger.log(context, packIndex, cardIndex, System.currentTimeMillis(), NotificationLogger.LogType.RESPONSE);
+        if(log)
+            NotificationLogger.log(context, packIndex, cardIndex, System.currentTimeMillis(), NotificationLogger.LogType.RESPONSE);
     }
 
     //Build the prompt notification for the given card
-    private static Notification buildPromptNotification(Context context, int packIndex, int cardIndex, int notificationID)
+    private static Notification buildPromptNotification(Context context, int packIndex, int cardIndex, int notificationID, boolean log)
     {
         //Initialize general notification data
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID);
@@ -76,14 +78,14 @@ public class NotificationDispatcher
 
         //Add card content based on type
         if(card instanceof ITextCard)
-            addTextContent(context, packIndex, cardIndex, (ITextCard)card, builder, notificationID);
+            addTextContent(context, packIndex, cardIndex, (ITextCard)card, builder, notificationID, log);
         else if(card instanceof IMultipleChoiceCard)
-            addMultipleChoiceContent(context, packIndex, cardIndex, (IMultipleChoiceCard)card, builder, notificationID);
+            addMultipleChoiceContent(context, packIndex, cardIndex, (IMultipleChoiceCard)card, builder, notificationID, log);
 
         return builder.build();
     }
 
-    private static void addTextContent(Context context, int packIndex, int cardIndex, ITextCard card, NotificationCompat.Builder builder, int notificationID)
+    private static void addTextContent(Context context, int packIndex, int cardIndex, ITextCard card, NotificationCompat.Builder builder, int notificationID, boolean log)
     {
         //Add prompt text
         builder.setContentText(card.getPrompt());
@@ -94,13 +96,14 @@ public class NotificationDispatcher
         revealIntent.putExtra(NotificationAnswerer.NOTIFICATION_ID_LABEL, notificationID);
         revealIntent.putExtra(NotificationAnswerer.PACK_INDEX_LABEL, packIndex);
         revealIntent.putExtra(NotificationAnswerer.CARD_INDEX_LABEL, cardIndex);
+        revealIntent.putExtra(NotificationAnswerer.LOG_LABEL, log);
         PendingIntent pRevealIntent = PendingIntent.getBroadcast(context, getNextID(context), revealIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Action reveal = new NotificationCompat.Action(0, "Reveal", pRevealIntent);
         builder.addAction(reveal);
     }
 
-    private static void addMultipleChoiceContent(Context context, int packIndex, int cardIndex, IMultipleChoiceCard card, NotificationCompat.Builder builder, int notificationID)
+    private static void addMultipleChoiceContent(Context context, int packIndex, int cardIndex, IMultipleChoiceCard card, NotificationCompat.Builder builder, int notificationID, boolean log)
     {
         //Add prompt text
         builder.setContentText(card.getPrompt());
@@ -119,6 +122,7 @@ public class NotificationDispatcher
             answerIntent.putExtra(NotificationAnswerer.NOTIFICATION_ID_LABEL, notificationID);
             answerIntent.putExtra(NotificationAnswerer.PACK_INDEX_LABEL, packIndex);
             answerIntent.putExtra(NotificationAnswerer.CARD_INDEX_LABEL, cardIndex);
+            answerIntent.putExtra(NotificationAnswerer.LOG_LABEL, log);
             PendingIntent pAnswerIntent = PendingIntent.getBroadcast(context, getNextID(context), answerIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
             NotificationCompat.Action answer = new NotificationCompat.Action(0, answerText, pAnswerIntent);

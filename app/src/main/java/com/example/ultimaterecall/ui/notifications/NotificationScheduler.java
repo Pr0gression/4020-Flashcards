@@ -70,6 +70,6 @@ public class NotificationScheduler extends BroadcastReceiver
         int cardIndex = intent.getIntExtra(CARD_INDEX_LABEL, -1);
 
         //Send notification
-        NotificationDispatcher.sendPromptFlashcard(context, packIndex, cardIndex);
+        NotificationDispatcher.sendPromptFlashcard(context, packIndex, cardIndex, true);
     }
 }
