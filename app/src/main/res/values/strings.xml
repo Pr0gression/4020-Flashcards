@@ -4,7 +4,12 @@
     <string name="title_cards">Cards</string>
     <string name="title_settings">Settings</string>
 
+    <!-- Home Strings -->
     <string name="welcome_string">Welcome to Ultimate Recall!</string>
+    <string name="streak_string">You are on a 8 day streak! 🔥</string>
+    <string name="suggested_string">Cards you havent seen in a while will be here</string>
+
+
     <string name="edit_string">Edit</string>
     <string name="selected">Enabled</string>
     <string name="availability">Availability</string>
