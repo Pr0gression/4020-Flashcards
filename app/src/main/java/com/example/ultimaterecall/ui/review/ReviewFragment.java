@@ -41,7 +41,7 @@ public class ReviewFragment extends Fragment {
 
 
         ViewPager2 viewPager2 = root.findViewById(R.id.idReviewPager);
-        //viewPager2.setPageTransformer(new DepthPageTransformer());
+        viewPager2.setPageTransformer(new DepthPageTransformer());
         ReviewPageAdapter reviewPageAdapter = new ReviewPageAdapter(getActivity().getApplicationContext(), myCards);
         viewPager2.setAdapter(reviewPageAdapter);
 
