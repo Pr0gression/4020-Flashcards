@@ -1,6 +1,7 @@
 package com.example.ultimaterecall.objects;
 
 public class MultipleChoiceCard extends CardObject implements IMultipleChoiceCard {
+    private static final int MAX_ANSWERS = 3;
 
     private String prompt;
     private String[] answers;
@@ -10,7 +11,9 @@ public class MultipleChoiceCard extends CardObject implements IMultipleChoiceCar
         super(name);
         this.prompt = prompt;
         this.answers = answers;
-        if (correctAnswer < 3 && correctAnswer > 0) {
+        if(answers.length > MAX_ANSWERS)
+            throw new IllegalArgumentException("Error: Multiple choice card can have at most " + MAX_ANSWERS + "answers");
+        if (correctAnswer < answers.length && correctAnswer >= 0) {
             this.index = correctAnswer;
         } else {
             throw new IllegalArgumentException("Error: correct answer must be valid");
