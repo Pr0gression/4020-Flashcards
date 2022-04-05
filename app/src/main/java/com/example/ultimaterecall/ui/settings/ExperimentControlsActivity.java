@@ -29,7 +29,7 @@ public class ExperimentControlsActivity extends AppCompatActivity
 {
     private static final long TIMELY_THRESHOLD = 1000*60*30; //30 minutes
     private static final int START_HOUR = 9;
-    private static final int END_HOUR = 17;
+    private static final int END_HOUR = 19;
 
     private static final String SHARED_PREFERENCES_KEY = "ExperimentControls_preferences";
     private static final String SCHEDULED_DECK_KEY = "ExperimentControls_scheduledDeck";
